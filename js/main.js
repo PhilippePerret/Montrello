@@ -1,6 +1,15 @@
 'use strict';
 
 $(document).ready(function(){
-  UI.insert("brique", "div#div-inserted")
-  UI.insert("header", "div#div-inserted")
+	UI.insert("header", "body")
+  .then(UI.insert.bind(UI,'footer', 'body'))
+  .then(UI.insert.bind(UI,'tableau', 'body'))
+  .then(UI.insert.bind(UI, "carte_form", "body"))
+  .then(UI.insert.bind(UI, "modele_liste", "body"))
+  .then(UI.init.bind(UI))
+  .then(ret => {
+  	Liste.add()
+  })
+  
+
 })

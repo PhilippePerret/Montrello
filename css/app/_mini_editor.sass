@@ -1,0 +1,28 @@
+#mini-editor
+	position: absolute
+	background-color: grey
+	color: white
+	padding: 4px
+	width: 400px
+	height: 60px
+	z-index: 5000
+	input[type="text"]
+		display: block
+		padding: 2px
+		width: calc(100% - 12px)
+	buttons
+		display: block
+		text-align: right
+		margin-top: 8px
+		button
+			all: unset
+			cursor: pointer
+			background-color: teal
+			padding: 1px 8px 3px
+			margin: 0 4px
+			display: inline-block
+			&.btn-cancel
+				float: left
+			&.btn-save
+				background-color: green
+				color: white

@@ -1,0 +1,70 @@
+<carte_form class="hidden">
+
+	<header>
+		<span class="close-btn"></span>
+		<span class="pictoed">
+			<span class="picto">🔘</span>
+			<span editable="true" class="titre bigger">titre de la carte</span>
+		</span>
+	</header>
+
+	<content style="margin-top: 20px;">
+		
+		<div class="colonne-contenu">
+					
+				<div id="carte-description-div">
+					<span class="pictoed">
+						<span class="picto">🔘</span>
+						<span class="titre">Description</span>
+					</span>
+					<div editable="true" id="carte_description" style="height: 60px">Ajouter la description ici</div>
+				</div>
+
+				<div id="carte-taches-div">
+					<span class="pictoed">
+						<span class="picto">🔘</span>
+						<span class="titre">Tâches</span>
+					</span>
+					<content>
+						
+					</content>
+				</div>
+
+				<div id="carte-details-div">
+					<span class="pictoed">
+						<span class="picto">🔘</span>
+						<span class="titre">Historique</span>
+					</span>					
+				</div>
+
+		</div>
+
+		<div class="colonne-boutons">
+			
+			<title>Ajouter à la carte</title>
+			<liste_actions data-class="AddToCard">
+				<content>
+					<button data-method="membre">👨‍🦰🎯🧩☎️⏱🧹🔎Membres</button>	
+					<button data-method="tag">🏷 Étiquettes</button>
+					<button data-method="checklist">✔ Check liste</button>
+					<button data-method="dates">⌚️ Dates</button>
+					<button data-method="links">🌎 Liens</button>
+					<button data-method="files">📎  Pièces jointes</button>
+				</content>
+			</liste_actions>
+
+			<title>Actions sur la carte</title>
+			<liste_actions data-class="ProcOnCard">
+				<content>
+					<button data-method="copy">Copier</button>
+					<button data-method="createModel">🗜 Créer un modèle</button>
+					<button data-method="follow">⛑ Suivre</button>
+					<button data-method="archive">🗄 Archiver</button>
+					<button data-method="destroy">🧨 Détruire</button>
+				</content>
+			</liste_actions>
+		</div>
+
+	</content>
+
+</carte_form>

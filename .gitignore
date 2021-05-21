@@ -3,4 +3,8 @@
 
 data/secret/
 
+data/montrello/
+
 ajax/secret/
+
+.sass-cache/
