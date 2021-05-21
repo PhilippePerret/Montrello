@@ -1,6 +1,10 @@
 'use strict'
 class Liste {
 
+static get(liste_id){
+	return this.items[liste_id]
+}
+
 /**	Ajouter une liste au tableau
 	*
 	*/
@@ -15,16 +19,17 @@ static create(data){
 	newItem.save()
 }
 
+static get ownerClass(){return null}
 
 
 constructor(data){
 	this.data = data
-	// Object.defineProperties(this,TOMiniProperties)
+	this.data.id || Object.assign(this.data, {id: Montrello.getNewId(this.constname)})
 }
 
 build(){
 	this.obj = document.querySelector(`${this.constname}#modele-${this.constname}`).cloneNode(/* deep = */ true)
-	this.obj.id = ""
+	this.obj.id = `${this.constname}-${this.id}`
 	this.obj.classList.remove('hidden')
 	this.container.querySelector('#listes').appendChild(this.obj)
 	this.obj.owner = this

@@ -5,18 +5,6 @@ const TABS = ['home','crop','analyse','export'];
 class UI {
 
 /**
-* Insertion des éléments HTML (briques)
-***/
-static insertHTMLElements(){
-  __in("UI::insertHTMLElements")
-  return UI.insert('panneau-home','div#panneau-home')
-  .then(UI.insert.bind(UI, 'form_data_analyse', 'div#form_data_analyse'))
-  .then(UI.insert.bind(UI, 'form_infos_score_analyse', 'div#form_infos_score_analyse'))
-  // Insérer d'autres éléments ici
-  .then(ASync_out("UI::insertHTMLElements"))
-}
-
-/**
 * Méthode qui règle l'interface en fonction des données connues
 * Par exemple, les onglets ne seront pas accessibles si aucun dossier
 * d'analyse n'est choisi.

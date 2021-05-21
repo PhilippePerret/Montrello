@@ -27,7 +27,6 @@ prepare(params){
 
 
 positionne(pos){
-	console.log("pos: ", pos)
 	this.obj.style.top 	= (pos.y) + 'px'
 	this.obj.style.left = (pos.x + 5) + 'px'
 }
@@ -51,7 +50,8 @@ onKeyDown(ev){
 }
 
 onClickSave(ev){
-	this.element.innerHTML = this.value
+	// this.element.innerHTML = this.value
+	// console.log("this.element = ", this.element)
 	// console.log("this.element.owner = ", this.element.owner)
 	// console.log("this.property = ", this.element.getAttribute('data-prop'))
 	// Il faut aller plus loin = modifier la propriété dans l'objet

@@ -30,10 +30,13 @@ dispatch(ret){
 	const type 	= ret.type
 	Object.assign(my.lastIds, {[type]: 0})
 	const Classe = eval(data[0].constructeur)
+	Classe.items = {}
 	data.forEach(hdata => {
 		// console.log("Construction de l'objet %s: ", hdata.type, hdata)
 		if (my.lastIds[type] < hdata.id) my.lastIds[type] = Number(hdata.id)
-		new Classe(hdata).build()
+		const item = new Classe(hdata)
+		Object.assign(Classe.items, {[hdata.id]: item})
+		item.build()
 	})
 	// console.log("Je dois dispatcher les données de type %s: ", ret.type, ret.data)	
 }

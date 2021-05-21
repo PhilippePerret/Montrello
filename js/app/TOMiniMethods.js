@@ -35,6 +35,11 @@ let TOMiniMethods = {
 
 	set(hdata){
 		Object.assign(this.data, hdata)
+		for (var k in hdata) {
+			var v = hdata[k]
+			let o = this.obj.querySelector(`*[data-prop="${k}"]`)
+			o && (o.innerHTML = v)
+		}
 		this.save()
 	},
 
@@ -47,6 +52,16 @@ let TOMiniMethods = {
 			const o = this.obj.querySelector(`*[data-prop="${prop}"]`)
 			o && (o.innerHTML = this.titre)
 		})
+	},
+
+	getOwner(){
+		if (this.constructor.ownerClass){
+			const owner = this.constructor.ownerClass.get(this.owner_id)
+			console.log("owner trouvé :", owner)
+			return owner
+		} else {
+			console.log("ownerClass n'est pas définit pour %s", this.constructor.name)
+		}
 	}
 }
 
@@ -74,6 +89,17 @@ const TOMiniProperties = {
 		set(v){this.data.titre = v}
 	},
 
+	owner:{
+		enumerable:true,
+		get(){return this._owner || (this._owner = this.getOwner())},
+		set(v){this._owner = v}
+	},
+
+	owner_id:{
+		enumerable: true,
+		get(){return this.data.owner_id},
+		set(v){this.data.owner_id = v}
+	},
 
 	container:{
 		enumerable:true,

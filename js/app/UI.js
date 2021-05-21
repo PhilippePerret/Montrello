@@ -4,13 +4,6 @@ Object.assign(UI,{
 	init(){
 		Menu.init()
 
-		document.querySelectorAll('*[data-strict-class][data-method]')
-		.forEach(element => {
-			const classe = eval(element.getAttribute('data-strict-class'))
-			const method = element.getAttribute('data-method')
-			element.addEventListener('click', classe[method].bind(classe))
-		})
-
 		// Rendre les listes du tableau sortable (généraliser ?)
 		$('#listes').sortable({
 				axis:'x'
@@ -42,6 +35,15 @@ Object.assign(UI,{
 			if (parent) element.owner = parent.owner;
 			element.addEventListener('click', this.onEditEditable.bind(this, element))
 		})
+
+		container.querySelectorAll('*[data-strict-class][data-method]')
+		.forEach(element => {
+			const classe = eval(element.getAttribute('data-strict-class'))
+			const method = element.getAttribute('data-method')
+			element.owner = container.owner
+			element.addEventListener('click', classe[method].bind(classe, element))
+		})
+
 	},
 
 	onEditEditable(element, ev){
