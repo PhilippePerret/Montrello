@@ -43,6 +43,7 @@ build(){
 	const o = document.querySelector('carte_form').cloneNode(true)
 	o.owner = this
 	document.body.appendChild(o)
+	$(o).draggable()
 	return o
 }
 }

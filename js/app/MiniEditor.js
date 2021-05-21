@@ -9,26 +9,37 @@ class MiniEditor {
 	// 'editable'
 	// 
 	static edit(element, position){
-		this.miniEditor || (this.miniEditor = new MiniEditor() )
+		this.miniEditor || this.buildMiniEditor()
 		this.miniEditor.edit(element, position)
 	}
 
+	static buildMiniEditor(){
+		this.miniEditor = new MiniEditor()
+		this.miniEditor.build()
+	}
 
 edit(element, position){
 	this.element = element
+	this.forSpan = element.tagName != 'DIV'
 	this.prepare({text: element.innerHTML, position: position})	
 	this.show()
 }
 
 prepare(params){
+	this.textField 	= this.obj.querySelector(this.forSpan ? 'input[type="text"]' : 'textarea')
+	this.otherField = this.obj.querySelector(this.forSpan ? 'textarea' : 'input[type="text"]')
+	this.textField.classList.remove('hidden')
+	this.otherField.classList.add('hidden')
 	this.value = params.text
 	this.positionne(params.position)
 }
 
 
 positionne(pos){
-	this.obj.style.top 	= (pos.y) + 'px'
-	this.obj.style.left = (pos.x + 5) + 'px'
+	console.log("position:", this.element.getBoundingClientRect())
+	const rectE = this.element.getBoundingClientRect()
+	this.obj.style.top 	= (parseInt(rectE.top) + 10) + 'px'
+	this.obj.style.left = (parseInt(rectE.left) - 5) + 'px'
 }
 
 show(){
@@ -41,6 +52,11 @@ hide(){this.obj.classList.add('hidden')}
 
 onKeyPressed(ev){
 	if(ev.key == 'Enter') this.onClickSave(ev)
+	else if (ev.key == 'Escape') this.onClickCancel(ev)
+	return true
+}
+onKeyPressedTA(ev){
+	if(ev.key == 'Enter' && ev.metaKey) this.onClickSave(ev)
 	else if (ev.key == 'Escape') this.onClickCancel(ev)
 	return true
 }
@@ -67,29 +83,32 @@ stopEdition(){
 	this.hide()
 }
 
-get obj(){
-	return this._obj || (this._obj = this.build() )
-}
-
 get value(){
 	return this.textField.value
 }
 set value(v){
 	this.textField.value = v
 }
-get textField(){
-	return this._textfield || (this._textfield = this.obj.querySelector('input[type="text"]') )
-}
 
 build(){
 	let o = document.createElement('DIV')
 	o.id = 'mini-editor'
 	o.class = 'hidden'
+
 	let i = document.createElement('INPUT')
 	i.type = 'text'
+	i.classList.add('hidden')
 	o.appendChild(i)
 	i.addEventListener('keypress', this.onKeyPressed.bind(this))
 	i.addEventListener('keydown', this.onKeyDown.bind(this))
+
+	let t = document.createElement('TEXTAREA')
+	o.appendChild(t)
+	t.classList.add('hidden')
+	t.addEventListener('keypress', this.onKeyPressedTA.bind(this))
+	t.addEventListener('keydown', this.onKeyDown.bind(this))		
+
+
 	let bs = document.createElement('BUTTONS')
 	let bsave = document.createElement('BUTTON')
 	bsave.class="btn-save"
@@ -104,7 +123,9 @@ build(){
 	o.appendChild(bs)
 	document.body.appendChild(o)
 
-	return o
+	this.obj = o
+
+	return true
 }
 }
 

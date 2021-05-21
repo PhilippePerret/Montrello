@@ -69,7 +69,7 @@ const TOMiniProperties = {
 
 	commonDisplayedProperties:{
 		enumerable: true,
-		get(){return['id','titre','container']}
+		get(){return['id','titre','container','description']}
 	},
 
 	constname:{
@@ -99,6 +99,12 @@ const TOMiniProperties = {
 		enumerable: true,
 		get(){return this.data.owner_id},
 		set(v){this.data.owner_id = v}
+	},
+
+	description:{
+		enumerable:true,
+		get(){return this.data.description},
+		set(v){this.data.description = v}
 	},
 
 	container:{
