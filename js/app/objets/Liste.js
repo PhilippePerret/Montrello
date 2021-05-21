@@ -1,19 +1,19 @@
 'use strict'
 class Liste {
 
-	/**	Ajouter une liste au tableau
-		*
-		*/
-	static add(){
-		message("Je dois ajouter une liste au tableau courant.")
-		const newListe = this.create({ct:'tableau'})
-	}
+/**	Ajouter une liste au tableau
+	*
+	*/
+static add(){
+	message("Je dois ajouter une liste au tableau courant.")
+	const newListe = this.create({ct:'tableau'})
+}
 
-	static create(data){
-		const newItem = new this(data)
-		newItem.build()
-		newItem.save()
-	}
+static create(data){
+	const newItem = new this(data)
+	newItem.build()
+	newItem.save()
+}
 
 
 
@@ -29,6 +29,8 @@ build(){
 	this.container.querySelector('#listes').appendChild(this.obj)
 	this.obj.owner = this
 	UI.setEditableIn(this.obj)
+	this.setCommonDisplayedProperties()
+	
 }
 
 

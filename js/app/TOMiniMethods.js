@@ -5,7 +5,6 @@
 let TOMiniMethods = {
 
 	save(params){
-		message("Je dois sauver l'objet " + this.constructor.name )
 
 		this.data = this.data || {}
 
@@ -23,27 +22,41 @@ let TOMiniMethods = {
 		// Si l'identifiant n'est pas défini
 		this.data.id ||= (this.data.id = Montrello.getNewId(this.data.type))
 
-		// 
-		// Transformations nécessaires
-		// 
-		if ( this.container ) this.data.ct = this.container.id
 		
-		console.log("Données à sauver", this.data)
-
 		Ajax.send('save.rb', {data: this.data}).then(ret => {
 			console.log("Retour d'ajax : ", ret)
 			if (ret.erreur) erreur(ret.erreur)
-			else message("Donnée sauvegardée avec succès.")
+			else {
+				console.log("Données sauvegardées :", this.data)
+				message("Donnée sauvegardée avec succès.")
+			}
 		})
 	},
 
 	set(hdata){
 		Object.assign(this.data, hdata)
 		this.save()
+	},
+
+	/**
+		* Méthode qui règle dans la carte les propriétés communes, par
+		* exemple le titre ou l'identifiant.
+		*/
+	setCommonDisplayedProperties(){
+		this.commonDisplayedProperties.forEach(prop => {
+			const o = this.obj.querySelector(`*[data-prop="${prop}"]`)
+			o && (o.innerHTML = this.titre)
+		})
 	}
 }
 
 const TOMiniProperties = {
+
+	commonDisplayedProperties:{
+		enumerable: true,
+		get(){return['id','titre','container']}
+	},
+
 	constname:{
 		enumerable: true,
 		get(){return this.constructor.name.toLowerCase()}
@@ -57,8 +70,8 @@ const TOMiniProperties = {
 
 	titre:{
 		enumerable: true,
-		get(){return this.data.ti},
-		set(v){this.data.ti = v}
+		get(){return this.data.titre},
+		set(v){this.data.titre = v}
 	},
 
 

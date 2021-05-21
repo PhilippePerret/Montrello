@@ -7,9 +7,8 @@ $(document).ready(function(){
   .then(UI.insert.bind(UI, "carte_form", "body"))
   .then(UI.insert.bind(UI, "modele_liste", "body"))
   .then(UI.init.bind(UI))
-  .then(ret => {
-  	Liste.add()
-  })
+  .then(Montrello.init.bind(Montrello))
+  .catch(console.error.bind(console))
   
 
 })
