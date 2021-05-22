@@ -71,6 +71,14 @@ Cela est rendu possible de cette manière suivante.
 
 
 
+#### Modification des valeurs affichées
+
+Normalement, les valeurs sont automatiquement corrigées. Mais, lorsque la balise affichant la valeur se trouve hors de l’objet du propriétaire, comme c’est le cas par exemple avec le titre du tableau et le tableau, la valeur affichée n’est pas corrigée. Dans ce cas, on peut ajouter au propriétaire une méthode `afterSet(data)` qui sera appelée après la méthode générique `set(data)` avec les mêmes arguments.
+
+Les valeurs affichées pourront être corrigées dans cette méthode où qu’elles se trouvent.
+
+
+
 ## Enregistrement des données
 
 Le principe est de faire encore un truc générique qui puisse permettre le modulaire.

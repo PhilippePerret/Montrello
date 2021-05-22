@@ -22,12 +22,19 @@ let TOMiniMethods = {
 		// Si l'identifiant n'est pas défini
 		this.data.id ||= (this.data.id = Montrello.getNewId(this.data.type))
 
-		
-		Ajax.send('save.rb', {data: this.data}).then(ret => {
+		// 
+		// Certains valeurs sont à retirer
+		const data4save = {}
+		Object.assign(data4save, this.data)
+		delete data4save.owner
+
+		console.log("Data à sauvegarder : ", data4save)
+
+		Ajax.send('save.rb', {data: data4save}).then(ret => {
 			console.log("Retour d'ajax : ", ret)
 			if (ret.erreur) erreur(ret.erreur)
 			else {
-				console.log("Données sauvegardées :", this.data)
+				console.log("Données sauvegardées :", data4save)
 				message("Donnée sauvegardée avec succès.")
 			}
 		})
@@ -42,6 +49,7 @@ let TOMiniMethods = {
 			o && (o.innerHTML = v)
 		}
 		this.save()
+		if (this.afterSet) this.afterSet(hdata)
 	},
 
 	/**
@@ -56,7 +64,10 @@ let TOMiniMethods = {
 	},
 
 	getOwner(){
-		if (this.constructor.ownerClass){
+		if ( this.data.ow ) {
+			const [type, id] = this.data.ow.split('-')
+			return Montrello.type2class(type).get(id)
+		} else if (this.constructor.ownerClass){
 			const owner = this.constructor.ownerClass.get(this.owner_id)
 			console.log("owner trouvé :", owner)
 			return owner
@@ -70,7 +81,12 @@ const TOMiniProperties = {
 
 	commonDisplayedProperties:{
 		enumerable: true,
-		get(){return['id','ti','ct','dsc']}
+		get(){return['id','ty', 'ti','ct','dsc']}
+	},
+
+	ty:{
+		enumerable: true,
+		get(){return this.data.ty}
 	},
 
 	constname:{
@@ -97,7 +113,7 @@ const TOMiniProperties = {
 
 	owner:{
 		enumerable:true,
-		get(){return this._owner || (this._owner = this.getOwner())},
+		get(){return this._owner || (this._owner = this.data.owner || this.getOwner())},
 		set(v){this._owner = v}
 	},
 

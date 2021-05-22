@@ -9,7 +9,7 @@ $(document).ready(function(){
   .then(UI.insert.bind(UI, "modele_carte", "body"))
   .then(UI.init.bind(UI))
   .then(Montrello.init.bind(Montrello))
-  .catch(console.error.bind(console))
+  .catch(console.error)
   
 
 })

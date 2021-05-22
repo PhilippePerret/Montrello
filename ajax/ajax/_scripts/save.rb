@@ -28,7 +28,13 @@ def folder
 end
 end
 
-objet = Objet.new(data)
-objet.save
+if data[:type] == 'config'
+	path = File.join(APP_FOLDER,'data','montrello','config.yaml')
+	File.delete(path) if File.exist?(path)
+	File.open(path,'wb') { |f| f.write(YAML.dump(data)) }
+else
+	objet = Objet.new(data)
+	objet.save
+	Ajax << {message: "J'ai sauvé la donnée de type #{data[:ty]} dans #{objet.path}", data: data}
+end
 
-Ajax << {message: "J'ai sauvé la donnée de type #{data[:ty]} dans #{objet.path}", data: data}

@@ -1,21 +1,28 @@
 'use strict'
 class CheckList {
 
+static get(item_id){ return this.items[item_id]}
+
 /**
 	* Création d'une check-list
 	* (dans le formulaire de carte)
 	*/
 static createFor(owner){
-	const clist = new CheckList(owner)
+	const clist = new CheckList({ow:owner.ref, owner:owner, ty:'cl', id:Montrello.getNewId('cl')})
 	clist.build_and_observe()
 	clist.addTask()
 	clist.save()
 }
 
 
-constructor(owner, data){
-	this.owner = owner
-	this._data = data || {tasks: [], id: Montrello.getNewId('checklist')}
+constructor(data){
+	this._data = data /** Quand une donnée doit être modifiée dans les
+											* données avant enregistrement, comme ici la
+											* liste des tâches, on passe par cette formule
+											* au lieu de this.data = data et on crée la
+											* méthode get data(){...} qui retournera _data
+											* modifié
+											*/
 }
 
 
@@ -97,7 +104,7 @@ observe(){
 }
 
 onClickAddTask(ev){
-	this.addTask()
+	this.createTask()
 }
 
 onClickRemoveList(ev){
@@ -107,10 +114,8 @@ onClickRemoveList(ev){
 /**
 	* Pour ajouter une tâche à la liste
 	*/
-addTask(){
-	const task = new CheckListTask(this)
-	task.build_and_observe()
-	task.edit()
+createTask(){
+	CheckListTask.createFor(this)
 }
 
 

@@ -1,21 +1,19 @@
 'use strict'
 class Carte {
 
-static get(carte_id){
-	return this.items[carte_id]
-}
-// 
-// Pour ajouter une carte à la liste
-// 
-static add(element,ev){
-	// console.log("add carte pour", element, element.owner)
-	const newCarte = this.create({ct:`liste#liste-${element.owner.id}`, titre: 'Nouvelle carte'})
-	newCarte.owner_id = element.owner.id
-	newCarte.owner 		= element.owner
-}
+static get(item_id){ return this.items[item_id]}
 
-static create(data){
-	const newItem = new this(data)
+// 
+// Pour créer une nouvelle carte à la liste
+// 
+static create(element){
+	console.log("add carte pour", element, element.owner)
+	const newItem = new this({
+		id: Montrello.getNewId('ca'),
+		ty:'ca', 
+		ti: 'Nouvelle carte', 
+		ow:element.owner.ref
+	})
 	newItem.build()
 	newItem.save()
 	return newItem
@@ -26,8 +24,9 @@ static get ownerClass(){return Liste}
 
 constructor(data){
 	this.data = data
-	this.data.id || Object.assign(this.data, {id: Montrello.getNewId(this.constname)})
 }
+
+get ref(){return `${this.ty}-${this.id}`}
 
 build(){
 	this.obj = document.querySelector(`${this.constname}#modele-${this.constname}`).cloneNode(/* deep = */ true)

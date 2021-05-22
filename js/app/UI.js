@@ -5,7 +5,7 @@ Object.assign(UI,{
 		Menu.init()
 
 		// Rendre les listes du tableau sortable (généraliser ?)
-		$('#listes').sortable({
+		$('tableau .listes').sortable({
 				axis:'x'
 			, items: '> liste'
 			, activate: function(ev,ui){ui.helper.addClass('moved')}
@@ -45,7 +45,8 @@ Object.assign(UI,{
 		})
 
 
-		document.querySelectorAll('*[data-class]').forEach(container => {
+		container.querySelectorAll('*[data-class]').forEach(container => {
+			if (container.classList.contains('feedable')){ return }
 			const classe = eval('Menu_' + container.getAttribute('data-class'))
 			container.querySelectorAll('content > *[data-method]').forEach(el => {
 				const method_name = el.getAttribute('data-method')
@@ -54,6 +55,10 @@ Object.assign(UI,{
 				el.owner = container.owner
 				el.addEventListener('click', classe[method_name].bind(classe, el))
 			})
+		})
+
+		container.querySelectorAll('menu.feedable').forEach(menu => {
+			FeedableMenu.build(menu)
 		})
 
 	},

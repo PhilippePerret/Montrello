@@ -8,14 +8,24 @@ require 'yaml'
 type = Ajax.param(:type)
 
 path_type = File.join(APP_FOLDER,'data','montrello', type.to_s)
-
+path_type = "#{path_type}.yaml" if type == 'config'
+	
 data =
-if File.exist?(path_type)
-	Dir["#{path_type}/*.yaml"].collect do |fpath|
-		YAML.load_file(fpath)
+if type == 'config'
+	if File.exist?(path_type)
+		YAML.load_file(path_type)
+	else
+		{type:'config'}
 	end
 else
-	[]
+	log("type:#{type.inspect}, path:#{path_type.inspect} existe ? #{File.exist?(path_type).inspect}")
+	if File.exist?(path_type)
+		Dir["#{path_type}/*.yaml"].collect{ |fpath| YAML.load_file(fpath) }
+	else
+		[]
+	end
 end
+
+log("type:#{type.inspect} data: #{data.inspect}")
 
 Ajax << {data:data, type:type}
