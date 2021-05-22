@@ -16,9 +16,20 @@ class Menu_Preferences {
 
 
 class Menu_AddToCard {
+	
 	static membre(){}
 	static tag(){}
-	static checklist(){}
+
+	/**
+		* Appelé par bouton pour ajouter la checklist
+		*
+		*/
+	static checklist(bouton){
+		console.log("bouton:", bouton)
+		const owner = bouton.owner
+		console.log("owner pour le checklist", owner)
+		CheckList.createFor(owner)
+	}
 	static dates(){}
 	static links(){}
 	static files(){}

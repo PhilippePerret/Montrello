@@ -14,7 +14,7 @@ def initialize(data)
 end
 
 def id; @id ||= data[:id] end
-def type; @type ||= data[:type] end
+def type; @type ||= data[:ty] end
 
 def save
 	File.delete(path) if File.exist?(path)
@@ -31,4 +31,4 @@ end
 objet = Objet.new(data)
 objet.save
 
-Ajax << {message: "J'ai sauvé la donnée de type #{data[:type]} dans #{objet.path}", data: data}
+Ajax << {message: "J'ai sauvé la donnée de type #{data[:ty]} dans #{objet.path}", data: data}

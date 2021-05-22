@@ -35,8 +35,8 @@ prepare(params){
 }
 
 
-positionne(pos){
-	console.log("position:", this.element.getBoundingClientRect())
+positionne(){
+	// console.log("position:", this.element.getBoundingClientRect())
 	const rectE = this.element.getBoundingClientRect()
 	this.obj.style.top 	= (parseInt(rectE.top) + 10) + 'px'
 	this.obj.style.left = (parseInt(rectE.left) - 5) + 'px'
@@ -118,9 +118,11 @@ build(){
 	bcanc.class = 'btn-cancel'
 	bcanc.innerHTML = 'Renoncer'
 	bcanc.addEventListener('click', this.onClickCancel.bind(this))
-	bs.appendChild(bcanc)
+	
 	bs.appendChild(bsave)
+	bs.appendChild(bcanc)
 	o.appendChild(bs)
+	
 	document.body.appendChild(o)
 
 	this.obj = o

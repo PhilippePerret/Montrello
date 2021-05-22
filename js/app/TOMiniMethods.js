@@ -6,17 +6,17 @@ let TOMiniMethods = {
 
 	save(params){
 
-		this.data = this.data || {}
+		if (undefined == this.data) this.data = {}
 
 		//
 		// Le constructeur de l'objet
 		// 
-		this.data.constructeur || (this.data.constructeur = this.constructor.name)
+		this.data.cr || (this.data.cr = this.constructor.name)
 
 		// 
 		// Le 'constname', le constructeur en minuscule => type
 		// 
-		this.data.type || (this.data.type = this.constname)
+		this.data.ty || (this.data.ty = this.constname)
 
 		// 
 		// Si l'identifiant n'est pas défini
@@ -35,6 +35,7 @@ let TOMiniMethods = {
 
 	set(hdata){
 		Object.assign(this.data, hdata)
+		// Si c'est un champ autoéditable
 		for (var k in hdata) {
 			var v = hdata[k]
 			let o = this.obj.querySelector(`*[data-prop="${k}"]`)
@@ -69,7 +70,7 @@ const TOMiniProperties = {
 
 	commonDisplayedProperties:{
 		enumerable: true,
-		get(){return['id','titre','container','description']}
+		get(){return['id','ti','ct','dsc']}
 	},
 
 	constname:{
@@ -85,8 +86,13 @@ const TOMiniProperties = {
 
 	titre:{
 		enumerable: true,
-		get(){return this.data.titre},
-		set(v){this.data.titre = v}
+		get(){return this.data.ti},
+		set(v){this.data.ti = v}
+	},
+	ti:{ // alias de titre, pour l'enregistrement
+		enumerable: true,
+		get(){return this.data.ti},
+		set(v){this.data.ti = v}
 	},
 
 	owner:{
@@ -103,15 +109,26 @@ const TOMiniProperties = {
 
 	description:{
 		enumerable:true,
-		get(){return this.data.description},
-		set(v){this.data.description = v}
+		get(){return this.data.dsc},
+		set(v){this.data.dsc = v}
+	},
+
+	dsc:{ // alias de description
+		enumerable:true,
+		get(){return this.data.dsc},
+		set(v){this.data.dsc = v}
 	},
 
 	container:{
 		enumerable:true,
 		get(){return this._container || (this.container = this.data.ct && document.querySelector(this.data.ct))},
-		set(v){this._container = v}
-	}
+		set(v){this._container = this.data.ct = v}
+	},
+	ct:{ // alias de container
+		enumerable:true,
+		get(){return this._container || (this.container = this.data.ct && document.querySelector(this.data.ct))},
+		set(v){ this._container = this.data.ct = v }
+	} 
 	
 
 }

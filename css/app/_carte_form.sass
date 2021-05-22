@@ -3,8 +3,9 @@ carte_form, carte_form *
 carte_form
 	position: fixed
 	display: block
-	width: 600px
+	width: 700px
 	height: auto
+	max-height: 1200px
 	top: 300px
 	// border: 1px dashed green
 	margin-left: calc(50% - 300px)
@@ -12,7 +13,7 @@ carte_form
 	padding: 1em
 	font-size: 12pt
 	box-shadow: 5px 5px 29px 8px #CCC
-	content
+	> content
 		display: grid
 		grid-template-rows: 100%
 		grid-template-columns: 60% 40%
@@ -20,11 +21,13 @@ carte_form
 			// border: 1px dashed red
 			grid-row: 1
 			grid-column: 1
-			padding: 28px 0 28px 28px
-			span.pictoed
-				margin-left: -28px
-			div 
-				padding: 1em 0 1em 1em
+			margin-bottom: 28px
+			> div 
+				margin-bottom: 1em
+				div
+					margin: 1em 0
+					&.description
+						margin-left: 3em
 		div.colonne-boutons
 			grid-row: 1
 			grid-column: 2

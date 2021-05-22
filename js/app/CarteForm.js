@@ -10,18 +10,27 @@ static edit(element){
 	const carte = element.owner
 	const cform = new this()
 	cform.carte = carte
-	UI.setEditableIn(cform.obj)
+	cform.build()
+	cform.setOwner(carte)
 	cform.edit(carte)
+	UI.setEditableIn(cform.obj)
 	cform.obj.querySelector('header > span.close-btn')
 		.addEventListener('click', cform.close.bind(cform))
 }
 
+setOwner(owner){
+	this.carte = owner
+	// Ici, renseigner les propriétaires des balises
+	this.obj.querySelectorAll('liste_actions').forEach(element => {
+		element.owner = this
+	})
+}
 
 edit(carte){
-	this.carte = carte
-	console.log("this.carte:", this.carte)
 	this.show()
-	this.carte.owner.obj.style.zIndex = 0
+
+
+	// this.carte.owner.obj.style.zIndex = 0
 	this.setValues()
 }
 
@@ -37,13 +46,11 @@ set(hdata){
 show(){this.obj.classList.remove('hidden')}
 close(){ this.obj.remove()}
 
-get obj(){return this._obj||(this._obj = this.build())}
-
 build(){
 	const o = document.querySelector('carte_form').cloneNode(true)
 	o.owner = this
 	document.body.appendChild(o)
 	$(o).draggable()
-	return o
+	this.obj = o
 }
 }

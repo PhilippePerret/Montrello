@@ -1,0 +1,26 @@
+button
+
+  // Bouton en simple texte (et lien)
+  &.text, &.link
+    all: unset
+    font-size: 11pt
+    font-family: Arial
+
+  // Bouton comme des liens
+  &.link
+    text-decoration: underline
+
+  // Bouton pour ajouter
+  &.btn-add
+    all: unset
+    background-color: #392c2c
+    color: white
+    padding: 0.2em 0.8em
+    opacity: 0.25
+    transition: opacity 0.2s
+    cursor: pointer
+    &:before
+      content: "+ "
+    &:hover
+      opacity: 1
+      transition: opacity 0.5s
