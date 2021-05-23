@@ -19,12 +19,15 @@ static set current(t){
 }
 
 /**
-	* Méthode pour créer le premier tableau, au lancement de l'app
+	* Méthode pour créer le premier tableau, au premier lancement de l'app
 	*
 	*/
-static createFirstOne(){
-	this.current = new Tableau({ty:'tb',ti:"Votre premier tableau", id:Montrello.getNewId('tb')})
+static create(element){
+	let pannel_name = ('string' == typeof(element)) ? element : "Nouveau tableau"
+	this.current = new Tableau({ty:'tb',ti:pannel_name, id:Montrello.getNewId('tb')})
 	this.current.save()
+	this.current.editTitle()
+	FeedableMenu.get('menu-tableaux').add(this.current)
 }
 
 /**
@@ -51,7 +54,7 @@ static updateFeedableMenu(){
 }
 // (pour la feedable menu)
 static onChooseItem(item){
-	console.log("Je dois afficher le tableau ", item)
+	// console.log("Je dois afficher le tableau ", item)
 	this.current = item // ça fait tout
 }
 
@@ -60,7 +63,10 @@ constructor(data){
 }
 
 afterSet(hdata){
-	if (hdata.ti) this.spanName.innerHTML = this.titre
+	if (hdata.ti){ 
+		this.spanName.innerHTML = this.titre
+		// TODO Changer le nom dans le menu des titres
+	}
 }
 
 prepare(){

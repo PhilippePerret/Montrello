@@ -35,7 +35,7 @@ build(){
 	this.obj = document.querySelector(`${this.constname}#modele-${this.constname}`).cloneNode(/* deep = */ true)
 	this.obj.id = `${this.constname}-${this.id}`
 	this.obj.classList.remove('hidden')
-	console.log("owner dans build de liste", this.owner)
+	// console.log("owner dans build de liste", this.owner)
 	this.owner.obj.querySelector('items.listes').appendChild(this.obj)
 	this.obj.owner = this
 	UI.setEditableIn(this.obj)

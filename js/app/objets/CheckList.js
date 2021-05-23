@@ -6,14 +6,29 @@ static get(item_id){ return this.items[item_id]}
 /**
 	* Création d'une check-list
 	* (dans le formulaire de carte)
+	*
+	* Note : le propriétaire +owner+ est la CarteForm et doit le rester
+	* pour écrire les éléments, etc. En revanche, c'est owner.carte qui
+	* doit recevoir les modifications de données, selon le principe du
+	* pipe.
+	*
 	*/
 static createFor(owner){
-	const clist = new CheckList({ow:owner.ref, owner:owner, ty:'cl', id:Montrello.getNewId('cl')})
+	const clist = new CheckList({
+			ow: 		owner.ref
+		, owner: 	owner
+		, ty: 		'cl'
+		, id: 		Montrello.getNewId('cl')
+		, tasks:  []
+	})
 	clist.build_and_observe()
 	clist.createTask()
 	clist.save()
+	// On doit ajouter la liste à la carte
+	owner.carte.addObjet(clist)
 }
 
+static get ownerClass(){ return Carte }
 
 constructor(data){
 	this._data = data /** Quand une donnée doit être modifiée dans les
@@ -29,15 +44,15 @@ constructor(data){
 // *** Données et propriétés ***
 
 get data(){
-	this._data.tasks = this.getTaskListIds()
+	if (this.ul) this._data.tasks = this.getTaskListIds()
 	return this._data
 }
 
 // Retourne la liste des identifiants de tâche
 getTaskListIds(){
 	let idlist = []
-	this.ul.querySelectorAll('li.li-task').forEach(li => {
-		idlist.push(li.getAttribute('data-task-id'))
+	this.ul.querySelectorAll('task').forEach(tk => {
+		idlist.push(tk.getAttribute('data-task-id'))
 	})
 	return idlist
 }
@@ -57,34 +72,31 @@ build_and_observe(){
 	*
 	*/
 build(){
-	const o = document.createElement('DIV')
-	o.classList.add('checklist-container')
-	
-	this.ul = document.createElement('UL')
-	this.ul.classList.add('checklist')
+	const o = document.body.querySelector('modeles checklist').cloneNode(/* deep = */ true)
+	o.id = `checklist-${this.id}`
+	this.ul = o.querySelector('ul')
+	console.log("this.ul", this.ul)
+	this.btn_add = o.querySelector('button.btn-add')
+	this.btn_sup = o.querySelector('button.btn-sup')
+	this.btn_mod = o.querySelector('button.btn-to-modele') // => pour faire un modèle de liste
+
 	$(this.ul).sortable({axis:'y'})
 
-
-	const btn_add  = document.createElement('BUTTON')
-	btn_add.innerHTML = 'Ajouter tâche'
-	btn_add.classList.add('btn-add')
-	const btn_sup = document.createElement('BUTTON')
-	btn_sup.classList.add('link','fright', 'btn-sup')
-	btn_sup.innerHTML = 'Supprimer'
-	
-	const btns = document.createElement('BUTTONS')
-	btns.appendChild(btn_sup)
-	btns.appendChild(btn_add)
-
-	o.appendChild(this.ul)
-	o.appendChild(btns)
-
-	this.owner.obj.querySelector('div#carte-taches-div > content').appendChild(o)
-	
-	this.obj = o
-	this.btn_add = btn_add
-	this.btn_sup = btn_sup
-
+	/* Le conteneur de la liste de tâche
+	 * Pour le moment, je fonctionne comme ça : si this.owner.obj existe
+	 * (i.e. si on appelle la création depuis une édition d'une carte)
+	 * alors on prend cet objet, sinon (i.e. on appelle la construction
+	 * depuis l'instanciation de l'application) alors on construit les
+	 * éléments dans le document. NON, pour le mmoment, on ne les
+	 * ajoute pas.
+	 */
+	if (this.owner && this.owner.obj){ 
+		this.owner.obj.querySelector('div#carte-taches-div > content').appendChild(o)
+		o.classList.remove('hidden')
+	} else {
+		document.body.appendChild(o)
+		// TODO Mettre en hidden
+	}
 }
 
 /**
@@ -101,6 +113,11 @@ observe(){
 	// Bouton pour supprimer la liste
 	// 
 	this.btn_sup.addEventListener('click', this.onClickRemoveList.bind(this))
+
+	// 
+	// Bouton pour transformer la liste en modèle de liste
+	// 
+	this.btn_mod.addEventListener('click', this.onClickMakeModele.bind(this))
 }
 
 onClickAddTask(ev){
@@ -111,8 +128,14 @@ onClickRemoveList(ev){
 	message("Je dois détruire la liste de tâche")
 }
 
+onClickMakeModele(ev){
+	message("Je dois faire un modèle de cette liste")
+	// QUESTION Quid de si c'est déjà un modèle
+}
+
 /**
 	* Pour ajouter une tâche à la liste
+	*
 	*/
 createTask(){
 	CheckListTask.createFor(this)

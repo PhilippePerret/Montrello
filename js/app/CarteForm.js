@@ -28,9 +28,6 @@ setOwner(owner){
 
 edit(carte){
 	this.show()
-
-
-	// this.carte.owner.obj.style.zIndex = 0
 	this.setValues()
 }
 
@@ -49,8 +46,36 @@ close(){ this.obj.remove()}
 build(){
 	const o = document.querySelector('carte_form').cloneNode(true)
 	o.owner = this
+	o.setAttribute('data-owner-ref', this.carte.ref)
 	document.body.appendChild(o)
 	$(o).draggable()
 	this.obj = o
+	this.buildObjets()
+}
+
+/**
+	* Construction des objets de la carte
+	*
+	* QUESTION Faudrait-il généraliser à tous les objets ?
+	*/
+buildObjets(){
+
+	return // TODO enlever quand OK
+
+	if (!this.carte.objs || Object.keys(this.carte.objs).length == 0){
+		console.log("Aucun objet de carte à afficher")
+		return
+	}
+	for(var otype in this.carte.objs) {
+		const aryObjets = this.carte.objs[otype]
+		console.log("Afficher les objets de type %s :", otype, aryObjets)
+		const classe = Montrello.type2class(otype)
+		const conteneur = this.obj.querySelector(`content[data-type-objet="${otype}"]`)
+		aryObjets.forEach(objet_id => {
+			const objet = classe.get(objet_id)
+			console.log("objet = ", objet)
+			conteneur.appendChild(objet.obj)
+		})
+	}
 }
 }

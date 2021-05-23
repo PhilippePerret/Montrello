@@ -47,6 +47,10 @@ init:function(){
 	.then(this.dispatch.bind(this, 'li'))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'ca' /* carte */}))	
 	.then(this.dispatch.bind(this, 'ca'))
+	.then(Ajax.send.bind(Ajax,'load.rb',{type:'cl' /* checklist */}))	
+	// .then(this.dispatch.bind(this, 'cl'))
+	.then(Ajax.send.bind(Ajax,'load.rb',{type:'tk' /* task de checklist */}))	
+	// .then(this.dispatch.bind(this, 'tk'))
 	.then(ret => {console.log("This.lastIds", this.lastIds)})
 	.catch(console.error)
 },
@@ -108,7 +112,7 @@ ensureCurrentTableau:function(){
 	else {
 		// Si aucun tableau courant n'est défini ou n'existe plus, il 
 		// faut en créer un
-		Tableau.createFirstOne()
+		Tableau.create("Mon premier tableau")
 	}
 	// Peuplement du menu des tableaux dans l'header
 	Tableau.updateFeedableMenu()

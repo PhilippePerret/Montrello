@@ -10,7 +10,7 @@ button
     text-decoration: underline
 
   // Bouton pour ajouter ou supprimer
-  &.btn-add, &.btn-sup, &.common
+  &.btn-add, &.btn-sup, &.common, &.btn-to-modele
     all: unset
     background-color: #c8bfbf
     color: white
@@ -28,3 +28,14 @@ button
     &:before
       content: "✕ "
       color: red
+      margin-right: 4px
+  &.btn-to-modele
+    &:after
+      content: "☞"
+      margin-left: 10px
+      color: green
+
+button:not(.fright) + button:not(.fright)
+  margin-left: 8px
+button.fright + button.fright
+  margin-right: 8px

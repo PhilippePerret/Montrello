@@ -24,6 +24,18 @@ toggle(){
 	this.element.classList.toggle('opened')
 }
 
+/**
+	* Ajoute un item
+	* (par exemple un titre à une liste de titres)
+	*/
+add(item){
+	const cr = item.constructor
+	// console.log("ajout d'un item au feedable menu (item, owner =)", item, cr)
+	cr.items || (cr.items = {})
+	Object.assign(cr.items, {[item.id]: item})
+	this.ul.appendChild((new FeedableMenuItem(this, item)).obj)
+}
+
 prepare(){
 	if ( !this.owner.items || Object.keys(this.owner.items).length == 0) {
 		// return console.log("Pas d'items, je ne peux pas prépare le menu feedable de %s", this.owner.name)
@@ -54,6 +66,7 @@ get obj(){return this._obj || (this._obj = this.build() )}
 
 build(){
 	const o = document.createElement('LI')
+	o.setAttribute('data-owner-ref', this.owner.ref)
 	o.innerHTML = this.owner.titre
 	o.addEventListener('click', this.onClick.bind(this))
 	this._obj = o

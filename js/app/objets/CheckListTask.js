@@ -12,11 +12,12 @@ static createFor(owner){
 			owner:owner
 		, ow:owner.ref
 		, ty:'tk'
-		, id:Montrello.getNewId('task')
-		, lab:"Nouvelle tâche"
+		, id: 	Montrello.getNewId('task')
+		, lab: 	"Nouvelle tâche"
 	})
 	newtask.build_and_observe()
 	newtask.edit()
+	owner.save()
 }
 
 constructor(data){
@@ -55,7 +56,6 @@ build(){
 	lab.innerHTML = this._data.lab
 
 	// On met la tâche dans la liste
-	console.log("this.checklist.ul:", this.checklist.ul)
 	this.checklist.ul.appendChild(o)
 
 	// [1] Sert pour la méthode set() générale
