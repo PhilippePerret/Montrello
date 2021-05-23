@@ -6584,3 +6584,500 @@ Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/syst
 Nombre de fichiers .DS_Store détruits : 0
 type:"ca", path:"/Users/philippeperret/Sites/Montrello/data/montrello/ca" existe ? false
 type:"ca" data: []
+--- [2021-05-23 06:47:51 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 1
+--- [2021-05-23 06:47:51 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:47:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:47:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:47:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:47:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:47:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"config" data: {:type=>"config", :current_pannel_id=>1}
+--- [2021-05-23 06:47:53 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"tb", path:"/Users/philippeperret/Sites/Montrello/data/montrello/tb" existe ? true
+type:"tb" data: [{:ty=>"tb", :ti=>"Tableau de bord", :id=>1, :cr=>"Tableau"}]
+--- [2021-05-23 06:47:53 +0200] Entrée dans ajax.rb
+--- [2021-05-23 06:47:53 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+Nombre de fichiers .DS_Store détruits : 0
+type:"li", path:"/Users/philippeperret/Sites/Montrello/data/montrello/li" existe ? true
+type:"li" data: [{:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>1, :cr=>"Liste"}, {:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>3, :cr=>"Liste"}, {:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>2, :cr=>"Liste"}]
+--- [2021-05-23 06:47:53 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"ca", path:"/Users/philippeperret/Sites/Montrello/data/montrello/ca" existe ? false
+type:"ca" data: []
+--- [2021-05-23 06:48:51 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:48:51 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:48:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:48:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:48:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:48:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:48:52 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"config" data: {:type=>"config", :current_pannel_id=>1}
+--- [2021-05-23 06:48:53 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"tb", path:"/Users/philippeperret/Sites/Montrello/data/montrello/tb" existe ? true
+type:"tb" data: [{:ty=>"tb", :ti=>"Tableau de bord", :id=>1, :cr=>"Tableau"}]
+--- [2021-05-23 06:48:53 +0200] Entrée dans ajax.rb
+--- [2021-05-23 06:48:53 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+Nombre de fichiers .DS_Store détruits : 0
+type:"li", path:"/Users/philippeperret/Sites/Montrello/data/montrello/li" existe ? true
+type:"li" data: [{:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>1, :cr=>"Liste"}, {:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>3, :cr=>"Liste"}, {:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>2, :cr=>"Liste"}]
+--- [2021-05-23 06:48:53 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"ca", path:"/Users/philippeperret/Sites/Montrello/data/montrello/ca" existe ? false
+type:"ca" data: []
+--- [2021-05-23 06:49:09 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:51:06 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:51:07 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:51:07 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:51:07 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:51:07 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:51:07 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+--- [2021-05-23 06:51:08 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"config" data: {:type=>"config", :current_pannel_id=>1}
+--- [2021-05-23 06:51:08 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"tb", path:"/Users/philippeperret/Sites/Montrello/data/montrello/tb" existe ? true
+type:"tb" data: [{:ty=>"tb", :ti=>"Tableau de bord", :id=>1, :cr=>"Tableau"}]
+--- [2021-05-23 06:51:08 +0200] Entrée dans ajax.rb
+--- [2021-05-23 06:51:08 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+Nombre de fichiers .DS_Store détruits : 0
+type:"li", path:"/Users/philippeperret/Sites/Montrello/data/montrello/li" existe ? true
+type:"li" data: [{:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>1, :cr=>"Liste"}, {:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>3, :cr=>"Liste"}, {:ct=>"tb", :ty=>"li", :ow=>"tb-1", :id=>2, :cr=>"Liste"}]
+--- [2021-05-23 06:51:08 +0200] Entrée dans ajax.rb
+APP_FOLDER = "/Users/philippeperret/Sites/Montrello"
+Chargement des modules
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/app/app_constants.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Array.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Nil.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/handies.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Handies_files.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Integer.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/Hash.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/String_RTF.rb'
+Chargement module '/Users/philippeperret/Sites/Montrello/ajax/ajax/required/system/db.rb'
+Nombre de fichiers .DS_Store détruits : 0
+type:"ca", path:"/Users/philippeperret/Sites/Montrello/data/montrello/ca" existe ? false
+type:"ca" data: []

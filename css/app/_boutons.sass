@@ -1,5 +1,4 @@
 button
-  z-index: 0
   // Bouton en simple texte (et lien)
   &.text, &.link
     all: unset
@@ -13,14 +12,14 @@ button
   // Bouton pour ajouter
   &.btn-add
     all: unset
-    background-color: #392c2c
+    background-color: #c8bfbf
     color: white
     padding: 0.2em 0.8em
-    opacity: 0.25
-    transition: opacity 0.2s
+    transition: 0.2s
     cursor: pointer
     &:before
       content: "+ "
     &:hover
-      opacity: 1
-      transition: opacity 0.5s
+      // opacity: 1
+      background-color: #392c2c
+      transition: 0.5s
