@@ -38,7 +38,7 @@ prepare(params){
 positionne(){
 	// console.log("position:", this.element.getBoundingClientRect())
 	const rectE = this.element.getBoundingClientRect()
-	this.obj.style.top 	= (parseInt(rectE.top) + 15) + 'px'
+	this.obj.style.top 	= (parseInt(rectE.top)) + 'px'
 	this.obj.style.left = (parseInt(rectE.left) -15) + 'px'
 }
 

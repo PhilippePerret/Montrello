@@ -28,13 +28,13 @@ let TOMiniMethods = {
 		Object.assign(data4save, this.data)
 		delete data4save.owner
 
-		console.log("Data à sauvegarder : ", data4save)
+		// console.log("Data à sauvegarder : ", data4save)
 
 		Ajax.send('save.rb', {data: data4save}).then(ret => {
-			console.log("Retour d'ajax : ", ret)
+			// console.log("Retour d'ajax : ", ret)
 			if (ret.erreur) erreur(ret.erreur)
 			else {
-				console.log("Données sauvegardées :", data4save)
+				// console.log("Données sauvegardées :", data4save)
 				message("Donnée sauvegardée avec succès.")
 			}
 		})
@@ -92,6 +92,11 @@ const TOMiniProperties = {
 		get(){return['id','ty', 'ti','ct','dsc']}
 	},
 
+	domId:{
+		enumerable: true,
+		get(){return this._domid || (this._domid = `${this.constname}-${this.id}`)}
+	},
+
 	ty:{
 		enumerable: true,
 		get(){return this.data.ty}
@@ -145,13 +150,13 @@ const TOMiniProperties = {
 
 	container:{
 		enumerable:true,
-		get(){return this._container || (this.container = this.data.ct && document.querySelector(this.data.ct))},
-		set(v){this._container = this.data.ct = v}
+		get(){return this._container || (this.container = this.ct && document.querySelector(this.ct))},
+		set(v){this._container = v}
 	},
-	ct:{ // alias de container
+	ct:{ // Selector du container
 		enumerable:true,
-		get(){return this._container || (this.container = this.data.ct && document.querySelector(this.data.ct))},
-		set(v){ this._container = this.data.ct = v }
+		get(){return this.data.ct},
+		set(v){ this.data.ct = v }
 	} 
 	
 
