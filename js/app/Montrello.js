@@ -42,6 +42,7 @@ init:function(){
 	.then(this.dispatch.bind(this, 'config'))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'tb' /* Tableau */}))
 	.then(this.dispatch.bind(this, 'tb'))
+	.then(this.ensureCurrentTableau.bind(this))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'li' /* liste */ }))
 	.then(this.dispatch.bind(this, 'li'))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'ca' /* carte */}))	
@@ -55,18 +56,15 @@ resetProps(){
 },
 
 dispatch(type, ret){
-	// console.log("type = %s, ret = ", type, ret)
+	// console.log("dispatch(type = %s, ret = )", type, ret)
 	return new Promise((ok,ko) => {
-		if ( !ret ){ ok() }
-		else {
-			if ( ret.type == 'config' ) {
-				this.dispatch_config(ret.data)
-			} else {
-				if(ret.data.length == 0) return
-				this.dispatch_data(ret.data, ret.type)
-			}
-			ok()
+		if ( type == 'config' ) {
+			this.dispatch_config(ret.data)
+		} else {
+			if (ret.data.length == 0) ok()
+			this.dispatch_data(ret.data, ret.type)
 		}
+		ok()
 	})
 },
 
@@ -83,7 +81,7 @@ setConfig(hdata){
 
 
 dispatch_data(data, type){
-	// console.log("type = %s", type, data)
+	// console.log("dispatch_data(type = %s) with data", type, data)
 	const my = this
 	Object.assign(my.lastIds, {[type]: 0})
 	const Classe = eval(data[0].cr)
@@ -95,26 +93,28 @@ dispatch_data(data, type){
 		Object.assign(Classe.items, {[hdata.id]: item})
 		item.build()
 	})
-	// 
-	// Quelques cas particuliers
-	// 
-	if (type == 'tb' /* tableau */) {
-		/**
-			* Cas des tableaux
-			* ----------------
-			*
-			* Note : s'il y a déjà des tableaux définis, ils sont construits
-			* dans la boucle précédentes (mais cachés)
-			*/
-		if ( this.config.current_pannel_id ){
-			Tableau.current = Tableau.get(this.config.current_pannel_id)
-		} else {
-			// Si aucun tableau courant n'est défini, il faut en créer un
-			Tableau.current = new Tableau({ty:'tb',ti:"Nouveau tableau", id:Montrello.getNewId('tb')})
-		}
-		// Peuplement du menu des tableaux dans l'header
-		Tableau.updateFeedableMenu()
+},
+
+/**
+	* Méthode qui s'assure qu'il existe un tableau courant
+	*
+	*/
+ensureCurrentTableau:function(){
+	let current ;
+	if ( this.config.current_pannel_id ){
+		current = Tableau.get(this.config.current_pannel_id)
+	} 
+	if ( current ) Tableau.current = current
+	else {
+		// Si aucun tableau courant n'est défini ou n'existe plus, il 
+		// faut en créer un
+		Tableau.createFirstOne()
 	}
-}
+	// Peuplement du menu des tableaux dans l'header
+	Tableau.updateFeedableMenu()
+},
+
+
+
 
 }//Montrello

@@ -1,17 +1,30 @@
 'use strict'
 class Tableau {
 
-static get(item_id){ return this.items[item_id]}
-
-static get current(){
-	return this._current
+/**
+	* Retourne le tableau d'identifiant +item_id+
+	*/
+static get(item_id) { 
+	this.items || (this.items = {})
+	return this.items[item_id]
 }
+
+static get current(){ return this._current }
 
 static set current(t){
 	if ( this._current ) this._current.hide()
 	this._current = t
 	Montrello.setConfig({current_pannel_id: t.id})
 	t.prepare()
+}
+
+/**
+	* Méthode pour créer le premier tableau, au lancement de l'app
+	*
+	*/
+static createFirstOne(){
+	this.current = new Tableau({ty:'tb',ti:"Votre premier tableau", id:Montrello.getNewId('tb')})
+	this.current.save()
 }
 
 /**
