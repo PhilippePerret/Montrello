@@ -9,17 +9,22 @@ button
   &.link
     text-decoration: underline
 
-  // Bouton pour ajouter
-  &.btn-add
+  // Bouton pour ajouter ou supprimer
+  &.btn-add, &.btn-sup, &.common
     all: unset
     background-color: #c8bfbf
     color: white
     padding: 0.2em 0.8em
     transition: 0.2s
     cursor: pointer
-    &:before
-      content: "+ "
     &:hover
       // opacity: 1
       background-color: #392c2c
       transition: 0.5s
+  &.btn-add
+    &:before
+      content: "+ "
+  &.btn-sup
+    &:before
+      content: "✕ "
+      color: red

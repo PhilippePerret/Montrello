@@ -8,9 +8,9 @@ class MiniEditor {
 	// Méthode principale appelée par un objet possédant la classe
 	// 'editable'
 	// 
-	static edit(element, position){
+	static edit(element){
 		this.miniEditor || this.buildMiniEditor()
-		this.miniEditor.edit(element, position)
+		this.miniEditor.edit(element)
 	}
 
 	static buildMiniEditor(){
@@ -18,10 +18,10 @@ class MiniEditor {
 		this.miniEditor.build()
 	}
 
-edit(element, position){
+edit(element){
 	this.element = element
 	this.forSpan = element.tagName != 'DIV'
-	this.prepare({text: element.innerHTML, position: position})	
+	this.prepare({text: element.innerHTML})	
 	this.show()
 }
 
@@ -31,15 +31,15 @@ prepare(params){
 	this.textField.classList.remove('hidden')
 	this.otherField.classList.add('hidden')
 	this.value = params.text
-	this.positionne(params.position)
+	this.positionne()
 }
 
 
 positionne(){
 	// console.log("position:", this.element.getBoundingClientRect())
 	const rectE = this.element.getBoundingClientRect()
-	this.obj.style.top 	= (parseInt(rectE.top) + 10) + 'px'
-	this.obj.style.left = (parseInt(rectE.left) - 5) + 'px'
+	this.obj.style.top 	= (parseInt(rectE.top) + 15) + 'px'
+	this.obj.style.left = (parseInt(rectE.left) -15) + 'px'
 }
 
 show(){

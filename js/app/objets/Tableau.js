@@ -14,6 +14,23 @@ static set current(t){
 	t.prepare()
 }
 
+/**
+	* Le container <tableaux> contenant tous les tableaux
+	*/
+static get container(){
+	return this._container || (this._container = document.body.querySelector('tableaux'))
+}
+
+// Détruit le tableau courant
+static destroyCurrent(){
+	this.current.destroy()
+}
+
+// Édite les préférences du panneau courant
+static editPrefsCurrent(){
+	message("Je ne sais pas encore éditer les préférences du panneau courant")
+}
+
 // Actualise la liste des tableaux
 static updateFeedableMenu(){
 	const fmenu = FeedableMenu.get('menu-tableaux')
@@ -22,7 +39,7 @@ static updateFeedableMenu(){
 // (pour la feedable menu)
 static onChooseItem(item){
 	console.log("Je dois afficher le tableau ", item)
-	this.current = item
+	this.current = item // ça fait tout
 }
 
 constructor(data){
@@ -56,11 +73,18 @@ hide(){ this.obj.classList.add('hidden')}
 build(){
 	this.obj = document.body.querySelector('tableau').cloneNode(/* deep = */ true)
 	this.obj.id = `tableau-${this.id}`
-	document.body.appendChild(this.obj)
+	Tableau.container.appendChild(this.obj)
 	this.obj.owner = this
 	UI.setEditableIn(this.obj)
 }
 
+/**
+	* Méthode pour détruire le tableau
+	*/
+destroy(){
+	if(!confirm("Voulez-vous vraiment détruire ce tableau ET TOUTES SES LISTES ?")) return
+
+}
 
 }
 Object.assign(Tableau.prototype, TOMiniMethods)

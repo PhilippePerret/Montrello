@@ -53,6 +53,14 @@ let TOMiniMethods = {
 	},
 
 	/**
+		* La fonction générique qui met le titre en édition avec le
+		* mini-éditeur (par exemple à la création de l'élément)
+		*/
+	editTitle(){
+		MiniEditor.edit(this.obj.querySelector('title.editable'))
+	},
+
+	/**
 		* Méthode qui règle dans la carte les propriétés communes, par
 		* exemple le titre ou l'identifiant.
 		*/

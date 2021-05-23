@@ -16,6 +16,7 @@ static create(element){
 	})
 	newItem.build()
 	newItem.save()
+	newItem.editTitle()
 	return newItem
 }
 

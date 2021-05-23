@@ -25,9 +25,14 @@ getNewId:function(type){
 },
 
 /**
-	* Initialisation de Montrello
+	* Initialisation de Montrello (au chargement de l'application)
 	*
-	* On charge toutes les données et on les dispatch
+	* On charge toutes les données et on les dispatche dans les 
+	* différents tableaux. 
+	*
+	* QUESTION Peut-être qu'une technique possible pourrait être
+	* de ne s'occuper que du tableau actif et de faire les autres les
+	* un après les autres quand le premier est prêt.
 	*
 	*/
 init:function(){
@@ -78,7 +83,7 @@ setConfig(hdata){
 
 
 dispatch_data(data, type){
-	console.log("type = %s", type, data)
+	// console.log("type = %s", type, data)
 	const my = this
 	Object.assign(my.lastIds, {[type]: 0})
 	const Classe = eval(data[0].cr)
@@ -88,24 +93,26 @@ dispatch_data(data, type){
 		if (my.lastIds[type] < hdata.id) my.lastIds[type] = Number(hdata.id)
 		const item = new Classe(hdata)
 		Object.assign(Classe.items, {[hdata.id]: item})
-		if (type != 'tb') item.build()
+		item.build()
 	})
 	// 
 	// Quelques cas particuliers
 	// 
 	if (type == 'tb' /* tableau */) {
-		console.log("Chargement des tableaux, j'essaie de mettre le courant")
+		/**
+			* Cas des tableaux
+			* ----------------
+			*
+			* Note : s'il y a déjà des tableaux définis, ils sont construits
+			* dans la boucle précédentes (mais cachés)
+			*/
 		if ( this.config.current_pannel_id ){
 			Tableau.current = Tableau.get(this.config.current_pannel_id)
 		} else {
 			// Si aucun tableau courant n'est défini, il faut en créer un
 			Tableau.current = new Tableau({ty:'tb',ti:"Nouveau tableau", id:Montrello.getNewId('tb')})
 		}
-		// On construit la base de tous les tableaux (sur lesquels les
-		// listes seront posées)
-		Object.values(Tableau.items).forEach(tablo => tablo.build())
-		// Maintenant que les tableaux sont chargés, on peut actualiser
-		// le menu des tableaux dans l'header
+		// Peuplement du menu des tableaux dans l'header
 		Tableau.updateFeedableMenu()
 	}
 }
