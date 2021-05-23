@@ -31,8 +31,12 @@ edit(carte){
 	this.setValues()
 }
 
+/**
+	*	On place les valeurs de la carte dans le formulaire de carte
+	*/
 setValues(){
-	this.obj.querySelector('span.titre').innerHTML = this.carte.titre
+	this.setCommonDisplayedProperties()
+	// this.obj.querySelector('span.titre').innerHTML = this.carte.titre
 }
 
 set(hdata){
@@ -79,3 +83,5 @@ buildObjets(){
 	}
 }
 }
+Object.assign(CarteForm.prototype, TOMiniMethods)
+Object.defineProperties(CarteForm.prototype, TOMiniProperties)

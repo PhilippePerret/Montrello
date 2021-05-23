@@ -33,6 +33,7 @@ add(item){
 	// console.log("ajout d'un item au feedable menu (item, owner =)", item, cr)
 	cr.items || (cr.items = {})
 	Object.assign(cr.items, {[item.id]: item})
+	this.ul || this.prepare()
 	this.ul.appendChild((new FeedableMenuItem(this, item)).obj)
 }
 

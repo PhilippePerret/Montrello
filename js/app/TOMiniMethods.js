@@ -93,7 +93,8 @@ let TOMiniMethods = {
 	setCommonDisplayedProperties(){
 		this.commonDisplayedProperties.forEach(prop => {
 			const o = this.obj.querySelector(`*[data-prop="${prop}"]`)
-			o && (o.innerHTML = this.titre)
+			console.log("[setCommonDisplayedProperties] On doit mettre la propriété %s à '%s' dans", prop, this[prop], o)
+			o && (o.innerHTML = this[prop])
 		})
 	},
 
@@ -123,7 +124,7 @@ const TOMiniProperties = {
 
 	commonDisplayedProperties:{
 		enumerable: true,
-		get(){return['id','ty', 'ti','ct','dsc']}
+		get(){return['id','ty','ti','ct','dsc']}
 	},
 
 	domId:{

@@ -7,7 +7,7 @@ static get(item_id){ return this.items[item_id]}
 // Pour créer une nouvelle carte à la liste
 // 
 static create(element){
-	console.log("add carte pour", element, element.owner)
+	// console.log("add carte pour", element, element.owner)
 	const newItem = new this({
 			ct: `#${element.owner.domId}`
 		, id: Montrello.getNewId('ca')
