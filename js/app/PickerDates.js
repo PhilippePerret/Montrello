@@ -111,9 +111,9 @@ get asShortString(){
 	var segs = ['<span class="picto">🕣</span>']
 	segs.push(`du ${MDate.asHumanShort(this.dateFrom)}`)
 	if ( this.realDateFin ) {
-		segs.push(`au ${MDate.asHumanShort(this.realDateFin)}`)
+		segs.push(` au ${MDate.asHumanShort(this.realDateFin)}`)
 	}
-	segs = segs.join(' ')
+	segs = segs.join('')
 	const color = this.isOutOfDate() ? 'bad' : 'bon'
 	return `<span class="${color}">${segs}</span>`
 }
