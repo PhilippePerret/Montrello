@@ -30,13 +30,38 @@ class PickerTags {
 	}
 
 	/**
-		* Instancier un picker tags
+		* Instancier un picker tags pour le propriétaire +owner+
 		*/
 	static new(owner){
 		const p = new PickerTags(DATA_TAGGER)
 		p.owner = owner
 		p.build_and_observe()
 		return p
+	}
+
+	/**
+		* Dessine les cases de tags pour l'objet +owner+ qui est une
+		* instance qui doit :
+		*	- posséder la propriété tags renvoyer la liste des ids de tag
+		*	- posséder une propriété obj retournant l'objet DOM
+		* - posséder dans obj une balise <tags> pour mettre les tags
+		*/
+	static drawTagsIn(owner){
+		try {
+			owner.tags || raise("Le propriétaire doit posséder la propriété 'tags' !")
+			owner.obj  || raise("Le propriétaire doit posséder la propriété 'obj' !")
+			const otags = owner.obj.querySelector('tags')
+			otags || raise("Le propriétaire doit posséder une balise &lt;tags>")
+			otags.innerHTML = ''
+			owner.tags.forEach(colorid => {
+				const tag = document.createElement('TAG')
+				tag.style.backgroundColor = DATA_TAGGER.colors[colorid].color
+				otags.appendChild(tag)
+			})
+		} catch (error){
+			erreur(error)
+			console.error(error)
+		}
 	}
 
 constructor(data){
@@ -77,6 +102,7 @@ build(){
 }
 observe(){
 	this.btnSave.addEventListener('click', this.onClickSaveButton.bind(this))
+	this.btnClose.addEventListener('click', this.hide.bind(this))
 }
 
 /**
@@ -105,6 +131,7 @@ onClickOnColor(pickertag, ev){
 }
 
 get btnSave(){return this.obj.querySelector('buttons button.btn-save')}
+get btnClose(){return this.obj.querySelector('header button.btn-close')}
 }
 Object.assign(PickerTags.prototype, TOMiniMethods)
 Object.defineProperties(PickerTags.prototype, TOMiniProperties)

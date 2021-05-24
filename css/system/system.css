@@ -13,16 +13,6 @@ input[type="checkbox"] + label {
 
 .hidden {display:none!important;}
 
-/* Pour les boutons close des fenêtres */
-.btn-close {
-  position:absolute;
-  right:4px;top:4px;
-  font-size:9pt;
-  margin:0 0 1em 1em;
-  cursor:pointer;
-}
-.btn-close:before{content:'🔴';}
-
 /*
   Pour les messages (class Message)
 */

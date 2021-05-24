@@ -41,6 +41,8 @@ build(){
 	this.obj.owner = this
 	UI.setEditableIn(this.obj)
 	this.setCommonDisplayedProperties()
+	// Les tags
+	PickerTags.drawTagsIn(this)
 }
 
 /**
@@ -51,6 +53,8 @@ build(){
 	*/
 updateDisplay(hdata){
 	hdata.ti && this.setTitre(hdata.ti)
+	hdata.tags &&	PickerTags.drawTagsIn(this)
+
 }
 
 }// class Carte

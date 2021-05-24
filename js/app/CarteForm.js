@@ -21,6 +21,8 @@ static edit(element){
 	cform.obj
 		.querySelector('header > span.close-btn')
 		.addEventListener('click', cform.close.bind(cform))
+	// Mettre les tags
+	PickerTags.drawTagsIn(cform)
 }
 
 constructor(data){
@@ -55,6 +57,7 @@ editCommands(){
 
 afterSet(hdata){
 	this.carte.updateDisplay(hdata)
+	hdata.tags && PickerTags.drawTagsIn(this)
 }
 
 setOwner(owner){
