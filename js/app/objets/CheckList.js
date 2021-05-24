@@ -31,7 +31,7 @@ static createFor(owner){
 static get ownerClass(){ return Carte }
 
 constructor(data){
-	console.log("Instanciation CheckList avec :", data)
+	// console.log("Instanciation CheckList avec :", data)
 	this._data = data /** Quand une donnée doit être modifiée dans les
 											* données avant enregistrement, comme ici la
 											* liste des tâches, on passe par cette formule

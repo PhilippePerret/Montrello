@@ -39,23 +39,24 @@ Object.assign(UI,{
 			*			n'est défini que lorsqu'un carte est éditée.
 			*/
 		let method, classe
+
+		container.querySelectorAll('*[data-strict-class][data-method]')
+		.forEach(element => {
+			classe = eval(element.getAttribute('data-strict-class'))
+			method = element.getAttribute('data-method')
+			element.owner = container.owner
+			element.addEventListener('click', classe[method].bind(classe, element))
+		})
+
 		if ( container.owner ) {
 			container.querySelectorAll('*[data-strict-class]')
 			.forEach(element => {
-				// console.log("Élément avec data-scrict-class")
 				classe = eval(element.getAttribute('data-strict-class'))
-				method = element.getAttribute('data-method')
-				if ( method /* courte portée */) {
-					element.owner = container.owner
-					element.addEventListener('click', classe[method].bind(classe, element))
-				} else /* longue portée sur balises enfans */ {
-					element.querySelectorAll('*[data-method]').forEach(tag => {
-						tag.owner = container.owner
-						method = tag.getAttribute('data-method')
-						// console.log("Appliquer méthode %s de ", method, classe)
-						tag.addEventListener('click', classe[method].bind(classe, tag))
-					})
-				}
+				element.querySelectorAll('*[data-method]').forEach(tag => {
+					tag.owner = container.owner
+					method = tag.getAttribute('data-method')
+					tag.addEventListener('click', classe[method].bind(classe, tag))
+				})
 			})
 		}
 

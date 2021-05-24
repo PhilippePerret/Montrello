@@ -23,6 +23,7 @@ static set current(t){
 	*
 	*/
 static create(element){
+	console.log("-> Création d'un nouveau tableau avec :", element)
 	let pannel_name = ('string' == typeof(element)) ? element : "Nouveau tableau"
 	this.current = new Tableau({ty:'tb',ti:pannel_name, id:Montrello.getNewId('tb')})
 	this.current.save()
@@ -34,7 +35,7 @@ static create(element){
 	* Le container <tableaux> contenant tous les tableaux
 	*/
 static get container(){
-	return this._container || (this._container = document.body.querySelector('tableaux'))
+	return this._container || (this._container = DGet('tableaux'))
 }
 
 // Détruit le tableau courant
@@ -54,7 +55,6 @@ static updateFeedableMenu(){
 }
 // (pour la feedable menu)
 static onChooseItem(item){
-	// console.log("Je dois afficher le tableau ", item)
 	this.current = item // ça fait tout
 }
 
@@ -72,13 +72,8 @@ afterSet(hdata){
 prepare(){
 	this.spanName.innerHTML = this.titre
 	this.spanName.owner = this
-	this.obj || this.build()
-	$(this.obj.querySelector('items')).sortable({
-			axis:'x'
-		, items: '> liste'
-		, activate: function(ev,ui){ui.helper.addClass('moved')}
-		, deactivate: function(ev,ui){ui.item.removeClass('moved')}
-	})
+	this.obj || this.build_and_observe()
+	this.show()
 }
 
 get spanName(){
@@ -91,15 +86,32 @@ get ref(){return `${this.ty}-${this.id}`}
 show(){ this.obj.classList.remove('hidden')}
 hide(){ this.obj.classList.add('hidden')}
 
+build_and_observe(){
+	this.build()
+	this.observe()
+}
+
 /**
 	* Construction du tableau
 	*/
 build(){
 	this.obj = DOM.clone('modeles tableau')
-	this.obj.id = `tableau-${this.id}`
+	this.obj.id = this.domId
 	Tableau.container.appendChild(this.obj)
 	this.obj.owner = this
-	UI.setEditableIn(this.obj)
+	this.hide()
+}
+
+/**
+	* Observe
+	*/
+observe(){
+	$(this.obj.querySelector('items')).sortable({
+		axis:'x'
+	, items: '> liste'
+	, activate: function(ev,ui){ui.helper.addClass('moved')}
+	, deactivate: function(ev,ui){ui.item.removeClass('moved')}
+})
 }
 
 /**

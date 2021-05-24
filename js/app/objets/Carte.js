@@ -47,9 +47,7 @@ build(){
 	DevJauge.setIn(this)
 	// Les dates
 	if ( this.dates ) {
-		console.log("dates : ", this.dates)
 		var compDate = new ComplexeDate(this.dates)
-		console.log("complexe date:", compDate)
 		this.obj.querySelector('infosdate').innerHTML = compDate.asShortString
 	}
 }

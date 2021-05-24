@@ -111,54 +111,6 @@ function raise(msg){
   throw new Error(msg)
 }
 
-const NOW = new Date()
-
-/**
-  Retourne le temps en secondes
-  @documented
-**/
-function humanDateFor(timeSeconds){
-  if (undefined === timeSeconds){ timeSeconds = new Date()}
-  if ('number' != typeof(timeSeconds)) timeSeconds = parseInt(timeSeconds.getTime() / 1000)
-  var d = new Date(timeSeconds * 1000)
-  return `${String(d.getDate()).padStart(2,'0')} ${(String(d.getMonth()+1)).padStart(2,'0')} ${d.getFullYear()}`;
-}
-
-/**
-  * Reçoit une date au format JJ/MM/AAAA (tronquée ou non) et 
-  * retourne un objet Date.
-  */
-function dateString2Date(str){
-  const now = new Date()
-  let [j,m,a] = str.split('/')
-  a = integerOrNull(a) || now.getFullYear()
-  m = integerOrNull(m) || now.getMonth() + 1
-  j = integerOrNull(j)
-  console.log("Jour:%s, Mois:%s, Année:%s", j, m, a)
-  return new Date(a, m - 1, j, 0, 0, 0)
-}
-
-/**
-  * Reçoit une durée string au format "4s", "5j", "3m", "7a" et
-  * retourne la durée correspondante, en secondes
-  *
-  */
-const Unity2Secondes = {
-  'sc' : 1, 'mn': 60, 'hr':3600, 'jr':24*3600, 'mo':24*3600*31, 'an':365*24*3600
-}
-function dureeString2Secondes(str){
-  const u = str.substring(str.length - 3, str.length)
-  let n = str.substring(0, str.length - 3)
-  console.log("n = ", n)
-  n = parseInt(n, 10) 
-  if ( Unity2Secondes[u] ) {
-    return n * Unity2Secondes[u]
-  } else {
-    erreur("Impossible de calculer la durée " + str + " (les unités possibles sont : 'sc', 'mn', 'hr', 'jr', 'mo', 'an'")
-  }
-}
-
-
 function stopEvent(ev){
   ev.stopPropagation();
   ev.preventDefault();
