@@ -12,9 +12,11 @@
 */
 const DATA_TAGGER = {
 	colors:{
-			'1': {colorId:1, color: '#880000', 	name:''}
-		, '2': {colorId:2, color: 'orange', 	name:''}
-		, '3': {colorId:3, color: 'yellow', 	name:''}		
+			'1': {colorId:1, color: '#FF1111', 	name:''} // rouge
+		, '2': {colorId:2, color: 'orange', 	name:''} // orange
+		, '3': {colorId:3, color: 'rgb(224, 224, 0)', name:''} // jaune
+		, '4': {colorId:4, color: 'rgb(11, 167, 11)', name:''} // vert
+		, '5': {colorId:5, color: 'rgb(93, 93, 251)',	name:''} // bleu
 	}
 
 }
@@ -27,10 +29,26 @@ class PickerTags {
 		return this._tagger || (this._tagger = (new PickerTags(DATA_TAGGER)).build_and_observe() )
 	}
 
+	/**
+		* Instancier un picker tags
+		*/
+	static new(owner){
+		const p = new PickerTags(DATA_TAGGER)
+		p.owner = owner
+		p.build_and_observe()
+		return p
+	}
+
 constructor(data){
 	this.data = data
 }
 
+positionne(pos){
+	console.log("positionner(",pos)
+	this.obj.style.top 	= px(pos.y)
+	this.obj.style.left = px(pos.x)
+	this.show()
+}
 build_and_observe(){
 	this.build()
 	this.observe()
@@ -53,15 +71,40 @@ build(){
 		ocontent.appendChild(p)
 	})
 
+	document.body.appendChild(o)
+	this.obj = o
+
 }
 observe(){
+	this.btnSave.addEventListener('click', this.onClickSaveButton.bind(this))
+}
 
+/**
+	*	Cocher les couleurs voulues
+	*/
+checkColors(colorIdList){
+	this.obj.querySelectorAll('content pickertag').forEach(tag => tag.classList.remove('checked'))
+	colorIdList.forEach(colorid => {
+		this.obj.querySelector(`content pickertag[data-color-id="${colorid}"]`).classList.add('checked')
+	})
+}
+
+onClickSaveButton(){
+	let checks = []
+	this.obj.querySelectorAll('content pickertag').forEach(tag => {
+		if (tag.classList.contains('checked')){
+			checks.push(tag.getAttribute('data-color-id'))
+		}
+	})
+	this.owner.setTags(checks)
+	this.hide()
 }
 
 onClickOnColor(pickertag, ev){
-	console.log("Bloc couleur cliqué:", pickertag)
+	pickertag.classList.toggle('checked')
 }
 
+get btnSave(){return this.obj.querySelector('buttons button.btn-save')}
 }
 Object.assign(PickerTags.prototype, TOMiniMethods)
 Object.defineProperties(PickerTags.prototype, TOMiniProperties)

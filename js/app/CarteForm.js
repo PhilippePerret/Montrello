@@ -34,9 +34,6 @@ constructor(data){
 editMembers(){
 	message("Je dois ajouter un membre")
 }
-editTags(){
-	message("Je dois éditer les tags")
-}
 addChecklist(bouton){
 	console.log("Propriétaire du bouton 'Checklist':", bouton.owner)
 	CheckList.createFor(bouton.owner)

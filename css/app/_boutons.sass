@@ -1,5 +1,7 @@
 button
   // Bouton en simple texte (et lien)
+  &.btn
+    all: unset
   &.text, &.link
     all: unset
     font-size: 11pt
@@ -10,15 +12,14 @@ button
     text-decoration: underline
 
   // Bouton pour ajouter ou supprimer
-  &.btn-add, &.btn-sup, &.common, &.btn-to-modele
+  &.btn-add, &.btn-sup, &.common, &.btn-to-modele, &.btn-save
     all: unset
     background-color: #c8bfbf
     color: white
     padding: 0.2em 0.8em
     transition: 0.2s
     cursor: pointer
-    &:hover
-      // opacity: 1
+    &:hover, &.opac
       background-color: #392c2c
       transition: 0.5s
   &.btn-add
@@ -29,6 +30,18 @@ button
       content: "✕ "
       color: red
       margin-right: 4px
+  &.btn-edit
+    all: unset
+    display: inline-block
+    width: 20px
+    position: relative
+    &:before
+      content: '✏️'
+      margin-left: 8px
+      position: absolute
+      top: -18px
+      left: -3px
+      font-size: 9pt  
   &.btn-to-modele
     &:after
       content: "☞"

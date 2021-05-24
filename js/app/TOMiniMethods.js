@@ -15,6 +15,7 @@ let TOMiniMethods = {
 		this.titleField.innerHTML = titre || this.titre
 	},
 
+
 	/**
 		*	=== MÉTHODES DE PROPRIÉTÉS ===
 		*/
@@ -71,6 +72,17 @@ let TOMiniMethods = {
 		}
 		this.save()
 		if (this.afterSet) this.afterSet(hdata)
+	},
+
+	editTags(btn, ev){
+		this.pickertags || (this.pickertags = PickerTags.new(this))
+		const rect = btn.getBoundingClientRect()
+		this.pickertags.checkColors(this.tags)
+		this.pickertags.positionne({x: rect.left, y: rect.top})
+	},
+
+	setTags(tagListIds){
+		this.tags = tagListIds
 	},
 
 	/**
@@ -218,6 +230,15 @@ const TOMiniProperties = {
 		enumerable:true,
 		get(){return this.data.dsc},
 		set(v){this.data.dsc = v}
+	},
+
+	tags:{
+		enumerable:true,
+		get(){return this.data.tags || []},
+		set(v){
+			this.set({tags: v})
+			console.log("Régler les tags de l'objet à ", v)
+		}
 	},
 
 	container:{
