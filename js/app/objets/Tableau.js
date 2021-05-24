@@ -73,7 +73,12 @@ prepare(){
 	this.spanName.innerHTML = this.titre
 	this.spanName.owner = this
 	this.obj || this.build()
-	this.show()
+	$(this.obj.querySelector('items')).sortable({
+			axis:'x'
+		, items: '> liste'
+		, activate: function(ev,ui){ui.helper.addClass('moved')}
+		, deactivate: function(ev,ui){ui.item.removeClass('moved')}
+	})
 }
 
 get spanName(){
@@ -90,7 +95,7 @@ hide(){ this.obj.classList.add('hidden')}
 	* Construction du tableau
 	*/
 build(){
-	this.obj = document.body.querySelector('tableau').cloneNode(/* deep = */ true)
+	this.obj = DOM.clone('modeles tableau')
 	this.obj.id = `tableau-${this.id}`
 	Tableau.container.appendChild(this.obj)
 	this.obj.owner = this

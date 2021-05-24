@@ -1,7 +1,7 @@
 'use strict'
 class Carte {
 
-static get(item_id){ return this.items[item_id]}
+static get(item_id){ return this.items[item_id] }
 
 // 
 // Pour créer une nouvelle carte à la liste
@@ -43,6 +43,8 @@ build(){
 	this.setCommonDisplayedProperties()
 	// Les tags
 	PickerTags.drawTagsIn(this)
+	// La Jauge d'avancée
+	DevJauge.setIn(this)
 }
 
 /**
@@ -54,8 +56,33 @@ build(){
 updateDisplay(hdata){
 	hdata.ti && this.setTitre(hdata.ti)
 	hdata.tags &&	PickerTags.drawTagsIn(this)
-
 }
+
+/**
+	* Retourne toutes les tâches de la carte
+	* Attention : ici, il s'agit des instances CheckListTask
+	*/
+get tasks(){return this._tasks || (this._tasks = this.getAllTasks())}
+
+getAllTasks(){
+	if ( undefined == this.objs.cl || this.objs.cl.length == 0) return []
+	let ts = []
+	this.objs.cl.forEach(cl_id => {
+		CheckList.get(cl_id).tasks.forEach(task_id => ts.push(CheckListTask.get(task_id)))
+	})
+	return ts
+}
+
+/**
+	* Pour définir le propriétaire de ses éléments
+	*/
+ownerise(){
+	const my = this
+	// Les checklists (souvent une seule)
+	if ( undefined == this.objs.cl || this.objs.cl.length == 0) return
+	this.objs.cl.forEach(clid => CheckList.get(clid).carte = my)
+}
+
 
 }// class Carte
 Object.assign(Carte.prototype, TOMiniMethods)

@@ -83,6 +83,17 @@ function px(vals, asStyle = false){
   }
 }
 
+function stringOrNull(v){
+  v = v.trim()
+  if ( v == "" ) return null
+  return v
+}
+function integerOrNull(v){
+  v = v.trim()
+  if ( v == '' ) return null
+  return parseInt(v,10)
+}
+
 /**
   Méthode à appeler lorsque c'est un retourn ajax qui ne doit pas faire,
   dans un `catch`. La donnée retournée par le script ajax ruby doit contenir

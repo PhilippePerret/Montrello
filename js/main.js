@@ -8,6 +8,7 @@ $(document).ready(function(){
   .then(UI.insert.bind(UI, 	'modele_task', 	 		'modeles'))
   .then(UI.insert.bind(UI,  'modele_checklist', 'modeles'))
   .then(UI.insert.bind(UI,  'picker_tags',      'modeles'))
+  .then(UI.insert.bind(UI,  'picker_dates',     'modeles'))
   .then(UI.insert.bind(UI, 	'carte_form', 			'modeles'))
   .then(UI.insert.bind(UI,	'footer', 					'body'))
   .then(UI.init.bind(UI))

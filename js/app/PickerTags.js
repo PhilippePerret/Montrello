@@ -68,12 +68,6 @@ constructor(data){
 	this.data = data
 }
 
-positionne(pos){
-	console.log("positionner(",pos)
-	this.obj.style.top 	= px(pos.y)
-	this.obj.style.left = px(pos.x)
-	this.show()
-}
 build_and_observe(){
 	this.build()
 	this.observe()
@@ -130,8 +124,6 @@ onClickOnColor(pickertag, ev){
 	pickertag.classList.toggle('checked')
 }
 
-get btnSave(){return this.obj.querySelector('buttons button.btn-save')}
-get btnClose(){return this.obj.querySelector('header button.btn-close')}
 }
 Object.assign(PickerTags.prototype, TOMiniMethods)
 Object.defineProperties(PickerTags.prototype, TOMiniProperties)

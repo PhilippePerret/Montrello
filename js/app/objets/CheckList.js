@@ -15,7 +15,7 @@ static get(item_id){ return this.items[item_id]}
 	*/
 static createFor(owner){
 	const clist = new CheckList({
-			ow: 		owner.ref
+			ow: 		null
 		, owner: 	owner
 		, ty: 		'cl'
 		, id: 		Montrello.getNewId('cl')
@@ -85,7 +85,7 @@ build(){
 	const o = DOM.clone('modeles checklist')
 	o.id = `checklist-${this.id}`
 	this.ul = o.querySelector('ul')
-	// console.log("this.ul", this.ul)
+
 	this.btn_add = o.querySelector('button.btn-add')
 	this.btn_sup = o.querySelector('button.btn-sup')
 	this.btn_mod = o.querySelector('button.btn-to-modele') // => pour faire un modèle de liste
@@ -193,8 +193,22 @@ onClickMakeModele(ev){
 	*/
 createTask(){
 	CheckListTask.createFor(this)
+	this.updateDevJauge()
 }
 
+updateDevJauge(){
+	DevJauge.setIn(this)
+	DevJauge.setIn(this.carte)
+}
+
+/**
+	* À l'instanciation de Montrello, associe la CheckList courante
+	* à ses tâches
+	*/
+ownerise(){
+	const my = this
+	this.tasks.forEach(tkid => CheckListTask.get(tkid).checklist = my)
+}
 
 }
 Object.assign(CheckList.prototype, TOMiniMethods)

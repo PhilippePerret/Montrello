@@ -2,7 +2,10 @@
 
 class CheckListTask {
 
-static get(item_id){ return this.items[item_id]}
+static get(item_id){
+	// console.log("-> CheckListTask.get", item_id, this.items)
+	return this.items[item_id]
+}
 
 /**
 	* Pour créer une nouvelle tâche dans +owner+
@@ -11,9 +14,10 @@ static createFor(owner){
 	const newtask = new CheckListTask({
 			owner:owner
 		, ow:owner.ref
-		, ty:'tk'
-		, id: 	Montrello.getNewId('task')
+		, ty: 	'tk'
+		, id: 	Montrello.getNewId('tk')
 		, lab: 	"Nouvelle tâche"
+		, on: 	false
 	})
 	newtask.build_and_observe()
 	newtask.edit()
@@ -21,8 +25,7 @@ static createFor(owner){
 }
 
 constructor(data){
-	this.checklist 	= data.owner
-	this.checked 		= false
+	data.owner && (this.checklist = data.owner)
 	this._data = data /** Cf. l'explication dans CheckList */
 }
 
@@ -41,7 +44,7 @@ build_and_observe(){
 }
 
 build(){
-	const o 	= document.body.querySelector('task#modele-task').cloneNode(/* deep = */ true)
+	const o 	= DOM.clone('modeles task')
 	const cb 	= o.querySelector('span.checkmark')
 	const lab = o.querySelector('label')
 	
@@ -64,6 +67,9 @@ build(){
 	this.lab 			= lab
 	this.cb 			= cb
 
+	// On règle l'état
+	this.setState()
+
 }//build
 
 
@@ -85,10 +91,17 @@ onClickCheckTask(ev){
 		//  =>	On doit éditer le texte
 		this.edit()
 	} else {
-		this.checked = !this.checked
-		this.cb.classList[this.checked?'add':'remove']('checked')
-		this.li.classList[this.checked?'add':'remove']('checked')
+		const chk = !this.data.on
+		this.setState(chk)
+		this.set({on: chk})
+		this.checklist.updateDevJauge()
 	}
+}
+
+setState(chk){
+	if (undefined == chk) chk = this.data.on
+	this.cb.classList[chk?'add':'remove']('checked')
+	this.li.classList[chk?'add':'remove']('checked')
 }
 
 edit(){
@@ -99,6 +112,7 @@ onClickSupTask(ev){
 	message("Je dois détruire la tâche")
 }
 
+get checked(){ return this.data.on === true }
 
 }//class CheckListTask
 Object.assign(CheckListTask.prototype, TOMiniMethods)

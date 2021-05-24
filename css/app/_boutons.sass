@@ -1,12 +1,12 @@
 button
-  // Bouton en simple texte (et lien)
-  cursor: pointer
   &.btn, &.btn-close
     all: unset
+    cursor: pointer
   &.text, &.link, &.btn-close
     all: unset
     font-size: 11pt
     font-family: Arial
+    cursor: pointer
 
   // Bouton comme des liens
   &.link
@@ -27,6 +27,7 @@ button
     float: right
     &:after
       content: "✕"
+      cursor: pointer
   &.btn-add
     &:before
       content: "+ "

@@ -44,16 +44,16 @@ init:function(){
 	.then(this.dispatch.bind(this, 'tb'))
 	.then(this.buildItemsOf.bind(this, Tableau))
 	.then(this.ensureCurrentTableau.bind(this))
+	.then(Ajax.send.bind(Ajax,'load.rb',{type:'tk' /* task de checklist */}))	
+	.then(this.dispatch.bind(this, 'tk'))
+	.then(Ajax.send.bind(Ajax,'load.rb',{type:'cl' /* checklist */}))	
+	.then(this.dispatch.bind(this, 'cl'))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'li' /* liste */ }))
 	.then(this.dispatch.bind(this, 'li'))
 	.then(this.buildItemsOf.bind(this, Liste))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'ca' /* carte */}))	
 	.then(this.dispatch.bind(this, 'ca'))
 	.then(this.buildItemsOf.bind(this, Carte))
-	.then(Ajax.send.bind(Ajax,'load.rb',{type:'cl' /* checklist */}))	
-	.then(this.dispatch.bind(this, 'cl'))
-	.then(Ajax.send.bind(Ajax,'load.rb',{type:'tk' /* task de checklist */}))	
-	.then(this.dispatch.bind(this, 'tk'))
 	.then(ret => {console.log("This.lastIds", this.lastIds)})
 	.catch(console.error)
 },
@@ -98,11 +98,14 @@ dispatch_data(data, type){
 		if (my.lastIds[type] < hdata.id) my.lastIds[type] = Number(hdata.id)
 		const item = new Classe(hdata)
 		Object.assign(Classe.items, {[hdata.id]: item})
+		// Associe les enfants au parent. Par exemple, associe les tasks
+		// aux CheckLists. +item+ ci-dessous est une CheckList
+		item.ownerise && item.ownerise()
 	})
 },
 
 buildItemsOf(classe,ret){
-	Object.values(classe.items).forEach(item => item.build())
+	classe.items &&	Object.values(classe.items).forEach(item => item.build())
 },
 
 /**

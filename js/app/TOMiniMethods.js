@@ -76,14 +76,21 @@ let TOMiniMethods = {
 
 	editTags(btn, ev){
 		this.pickertags || (this.pickertags = PickerTags.new(this))
-		const rect = btn.getBoundingClientRect()
 		this.pickertags.checkColors(this.tags)
-		this.pickertags.positionne({x: rect.left, y: rect.top})
+		this.pickertags.positionne(btn)
 	},
 
 	setTags(tagListIds){
 		this.tags = tagListIds
 	},
+
+	editDates(btn, ev){
+		this.pickerdates || (this.pickerdates = PickerDates.new(this))
+		this.pickerdates.displayDates()
+		this.pickerdates.positionne(btn)
+	},
+
+	setDates(hvalues) { this.set({dates: hvalues}) },
 
 	/**
 		* La fonction générique qui met le titre en édition avec le
@@ -106,6 +113,25 @@ let TOMiniMethods = {
 			this.objs[otype].push(obj.id)
 		}
 		this.save()
+	},
+
+
+	/**
+		*	Pour positionner les objets positionnables (picker-tags, 
+		*	picker-dates)
+		*/
+	positionne(btn){
+		const rect = btn.getBoundingClientRect()
+		this.obj.style.top 	= px(rect.top)
+		this.obj.style.left = px(rect.left)
+		this.show()
+	},
+
+	/**
+		* Pour régler la jauge de développement que peut posséder l'objet
+		*/
+	setJaugeDev(){
+
 	},
 
 	/**
@@ -241,6 +267,12 @@ const TOMiniProperties = {
 		}
 	},
 
+	dates:{
+		enumerable:true,
+		get(){return this.data.dates || {fr:null, to:null, du:null}},
+		set(v){this.data.dates = v}
+	},
+
 	container:{
 		enumerable:true,
 		get(){return this._container || (this.container = this.ct && document.querySelector(this.ct))},
@@ -250,6 +282,16 @@ const TOMiniProperties = {
 		enumerable:true,
 		get(){return this.data.ct},
 		set(v){ this.data.ct = v }
+	},
+
+	btnSave:{
+		enumerable: true,
+		get(){return this.obj.querySelector('button.btn-save')}
+	},
+
+	btnClose:{
+		enumerable:true,
+		get(){return this.obj.querySelector('button.btn-close')}
 	},
 
 	/**

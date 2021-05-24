@@ -37,9 +37,14 @@ editMembers(){
 	message("Je dois ajouter un membre")
 }
 addChecklist(bouton){
-	console.log("Propriétaire du bouton 'Checklist':", bouton.owner)
 	CheckList.createFor(bouton.owner)
 }
+
+// Actualisation de la jauge de la carte et de la liste
+updateDevJauge(checklist){
+	DevJauge.setIn(this.carte)
+}
+
 editDates(){
 	message("Je dois éditer les dates")
 }
@@ -62,13 +67,6 @@ afterSet(hdata){
 
 setOwner(owner){
 	this.carte = owner
-	// // Ici, renseigner les propriétaires des balises
-	// this.obj.querySelectorAll('liste_actions').forEach(element => {
-	// 	element.owner = this
-	// })
-	// NON
-	// Maintenant, c'est CarteForm (cette classe) qui doit recevoir les
-	// modifications et les reporter sur la carte éditée.
 }
 
 edit(carte){

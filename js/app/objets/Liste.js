@@ -32,14 +32,16 @@ build(){
 	if (!this.owner){
 		return erreur("Désolé, mais le tableau propriétaire de la liste "+this.titre+" est introuvable… Nous ne pouvons pas construire cette liste.")
 	}
-	this.obj = document.querySelector(`${this.constname}#modele-${this.constname}`).cloneNode(/* deep = */ true)
-	this.obj.id = `${this.constname}-${this.id}`
-	this.obj.classList.remove('hidden')
-	// console.log("owner dans build de liste", this.owner)
+	this.obj = DOM.clone('modeles liste')
+	this.obj.id = this.domId
 	this.owner.obj.querySelector('items.listes').appendChild(this.obj)
 	this.obj.owner = this
 	UI.setEditableIn(this.obj)
 	this.setCommonDisplayedProperties()
+	// La liste des cartes doit être sortable
+	$(this.obj.querySelector('content > items')).sortable({
+		axis:'y'
+	})
 }
 
 

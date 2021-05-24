@@ -4,14 +4,6 @@ Object.assign(UI,{
 	init(){
 		Menu.init()
 
-		// Rendre les listes du tableau sortable (généraliser ?)
-		$('tableau .listes').sortable({
-				axis:'x'
-			, items: '> liste'
-			, activate: function(ev,ui){ui.helper.addClass('moved')}
-			, deactivate: function(ev,ui){ui.item.removeClass('moved')}
-		})
-
 		// Tous les éléments textuels éditables doivent l'être
 		this.setEditableIn(document)
 	},
