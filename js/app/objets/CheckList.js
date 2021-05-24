@@ -31,6 +31,7 @@ static createFor(owner){
 static get ownerClass(){ return Carte }
 
 constructor(data){
+	console.log("Instanciation CheckList avec :", data)
 	this._data = data /** Quand une donnée doit être modifiée dans les
 											* données avant enregistrement, comme ici la
 											* liste des tâches, on passe par cette formule
@@ -47,6 +48,15 @@ get data(){
 	if (this.ul) this._data.tasks = this.getTaskListIds()
 	return this._data
 }
+
+/**	
+	* Retourne la liste des tâches DANS LES DONNÉES (*)
+	*
+	* (*) Pour obtenir la liste des tâches dans l'affichage, il faut
+	*			impérativement utiliser la méthode getTaskListIds().
+	*
+	*/
+get tasks(){ return this._data.tasks }
 
 // Retourne la liste des identifiants de tâche
 getTaskListIds(){
@@ -72,33 +82,77 @@ build_and_observe(){
 	*
 	*/
 build(){
-	const o = document.body.querySelector('modeles checklist').cloneNode(/* deep = */ true)
+	const o = DOM.clone('modeles checklist')
 	o.id = `checklist-${this.id}`
 	this.ul = o.querySelector('ul')
-	console.log("this.ul", this.ul)
+	// console.log("this.ul", this.ul)
 	this.btn_add = o.querySelector('button.btn-add')
 	this.btn_sup = o.querySelector('button.btn-sup')
 	this.btn_mod = o.querySelector('button.btn-to-modele') // => pour faire un modèle de liste
 
-	$(this.ul).sortable({axis:'y'})
+	// On rend la liste classable
+	$(this.ul).sortable({
+			axis:'y'
+		, stop:this.onStopSorting.bind(this)
+		, start:this.onStartSorting.bind(this)
+	})
 
-	/* Le conteneur de la liste de tâche
-	 * Pour le moment, je fonctionne comme ça : si this.owner.obj existe
-	 * (i.e. si on appelle la création depuis une édition d'une carte)
-	 * alors on prend cet objet, sinon (i.e. on appelle la construction
-	 * depuis l'instanciation de l'application) alors on construit les
-	 * éléments dans le document. NON, pour le mmoment, on ne les
-	 * ajoute pas.
-	 */
+	this.obj = o
+
+	/** Construction des tâches
+		*	-----------------------
+		* À la première construction, la check-list n'a pas de tâche. Mais
+		* ensuite, elle en a et il faut les ajouter.
+		*
+		*/
+	// console.log("this.tasks", this.tasks)
+	if ( this.tasks.length ) {
+		this.tasks.forEach(taskId => {
+			const task = CheckListTask.get(taskId)
+			task.checklist = this
+			task.build_and_observe()
+		})
+	}
+
+	/** Le conteneur de la liste de tâche
+		* ---------------------------------
+	 	* Pour le moment, je fonctionne comme ça : si this.owner.obj existe
+	 	* (i.e. si on appelle la création depuis une édition d'une carte)
+	 	* alors on prend cet objet, sinon (i.e. on appelle la construction
+	 	* depuis l'instanciation de l'application) alors on construit les
+	 	* éléments dans le document. NON, pour le mmoment, on ne les
+	 	* ajoute pas.
+	 	*/
 	if (this.owner && this.owner.obj){ 
 		this.owner.obj.querySelector('div#carte-taches-div > content').appendChild(o)
 		o.classList.remove('hidden')
 	} else {
 		document.body.appendChild(o)
-		// TODO Mettre en hidden
 	}
 }
 
+/**
+	* Appelée quand on termine de trier la liste des tâches
+	*
+	* À la fin du déplacement des tâches, on met en route un compte à 
+	* rebours qui, s'il arrive à son termen, enregistre le nouveau
+	* classement. Sinon, si on commence à déplacer un autre item (cf.
+	* onStartSorting), ça interrompt le compte à rebours (pour ne pas
+	* enregistrer plein de fois si plusieurs changements sont opérés)
+	* 
+	*/
+onStopSorting(){
+	this.timerSave = setTimeout(this.save.bind(this), 2500)
+}
+/**
+	* Appelée quand on commence à trier les tâches
+	*/
+onStartSorting(){
+	if ( this.timerSave ) {
+		clearTimeout(this.timerSave)
+		this.timerSave = null
+	}
+}
 /**
 	* Place les observeur d'évènement (de click principalement)
 	*

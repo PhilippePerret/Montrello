@@ -36,13 +36,36 @@ Object.assign(UI,{
 			element.addEventListener('click', this.onEditEditable.bind(this, element))
 		})
 
-		container.querySelectorAll('*[data-strict-class][data-method]')
-		.forEach(element => {
-			const classe = eval(element.getAttribute('data-strict-class'))
-			const method = element.getAttribute('data-method')
-			element.owner = container.owner
-			element.addEventListener('click', classe[method].bind(classe, element))
-		})
+		/** Les balises définissant 'data-strict-class' (*)
+			*
+			*	SOIT Elles définissent aussi data-method (courte portée)
+			* SOIT Elles contiennent des balises qui définissent data-method
+			*				(longue portée)
+			*
+			* (*) mais seulement si elles possèdent un propriétaire. Par
+			*			exemple, pour le formulaire de Carte, ce propriétaire
+			*			n'est défini que lorsqu'un carte est éditée.
+			*/
+		let method, classe
+		if ( container.owner ) {
+			container.querySelectorAll('*[data-strict-class]')
+			.forEach(element => {
+				// console.log("Élément avec data-scrict-class")
+				classe = eval(element.getAttribute('data-strict-class'))
+				method = element.getAttribute('data-method')
+				if ( method /* courte portée */) {
+					element.owner = container.owner
+					element.addEventListener('click', classe[method].bind(classe, element))
+				} else /* longue portée sur balises enfans */ {
+					element.querySelectorAll('*[data-method]').forEach(tag => {
+						tag.owner = container.owner
+						method = tag.getAttribute('data-method')
+						// console.log("Appliquer méthode %s de ", method, classe)
+						tag.addEventListener('click', classe[method].bind(classe, tag))
+					})
+				}
+			})
+		}
 
 
 		container.querySelectorAll('*[data-class]').forEach(container => {

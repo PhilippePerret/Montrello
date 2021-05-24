@@ -9,7 +9,7 @@ type2class:function(type){
 		, 'li': Liste
 		, 'ca': Carte
 		, 'cl': CheckList
-		, 'ta': CheckListTask
+		, 'tk': CheckListTask
 	}
 	return this.types2class[type]
 },
@@ -42,15 +42,18 @@ init:function(){
 	.then(this.dispatch.bind(this, 'config'))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'tb' /* Tableau */}))
 	.then(this.dispatch.bind(this, 'tb'))
+	.then(this.buildItemsOf.bind(this, Tableau))
 	.then(this.ensureCurrentTableau.bind(this))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'li' /* liste */ }))
 	.then(this.dispatch.bind(this, 'li'))
+	.then(this.buildItemsOf.bind(this, Liste))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'ca' /* carte */}))	
 	.then(this.dispatch.bind(this, 'ca'))
+	.then(this.buildItemsOf.bind(this, Carte))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'cl' /* checklist */}))	
-	// .then(this.dispatch.bind(this, 'cl'))
+	.then(this.dispatch.bind(this, 'cl'))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'tk' /* task de checklist */}))	
-	// .then(this.dispatch.bind(this, 'tk'))
+	.then(this.dispatch.bind(this, 'tk'))
 	.then(ret => {console.log("This.lastIds", this.lastIds)})
 	.catch(console.error)
 },
@@ -88,15 +91,18 @@ dispatch_data(data, type){
 	// console.log("dispatch_data(type = %s) with data", type, data)
 	const my = this
 	Object.assign(my.lastIds, {[type]: 0})
-	const Classe = eval(data[0].cr)
+	const Classe = this.type2class(data[0].ty)
 	Classe.items = {}
 	data.forEach(hdata => {
 		// console.log("Construction de l'objet %s: ", hdata.type, hdata)
 		if (my.lastIds[type] < hdata.id) my.lastIds[type] = Number(hdata.id)
 		const item = new Classe(hdata)
 		Object.assign(Classe.items, {[hdata.id]: item})
-		item.build()
 	})
+},
+
+buildItemsOf(classe,ret){
+	Object.values(classe.items).forEach(item => item.build())
 },
 
 /**

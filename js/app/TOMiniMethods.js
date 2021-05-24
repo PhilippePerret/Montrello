@@ -4,14 +4,23 @@
 	*/
 let TOMiniMethods = {
 
+	/**
+		*	=== MÉTHODES D'AFFICHAGE ===
+		*/
+	show(){this.obj.classList.remove('hidden')},
+	hide(){this.obj.classList.add('hidden')},
+
+	// Actualisation de l'affichage du titre
+	setTitre(titre){
+		this.titleField.innerHTML = titre || this.titre
+	},
+
+	/**
+		*	=== MÉTHODES DE PROPRIÉTÉS ===
+		*/
 	save(params){
 
 		if (undefined == this.data) this.data = {}
-
-		//
-		// Le constructeur de l'objet
-		// 
-		this.data.cr || (this.data.cr = this.constructor.name)
 
 		// 
 		// Le 'constname', le constructeur en minuscule => type
@@ -27,6 +36,7 @@ let TOMiniMethods = {
 		const data4save = {}
 		Object.assign(data4save, this.data)
 		delete data4save.owner
+		delete data4save.cr // régression
 
 		// console.log("Data à sauvegarder : ", data4save)
 
@@ -35,7 +45,7 @@ let TOMiniMethods = {
 			if (ret.erreur) erreur(ret.erreur)
 			else {
 				// console.log("Données sauvegardées :", data4save)
-				message("Donnée sauvegardée avec succès.")
+				// message("Donnée sauvegardée avec succès.")
 			}
 		})
 	},
@@ -46,7 +56,7 @@ let TOMiniMethods = {
 		for (var k in hdata) {
 			var v = hdata[k]
 			let o = this.obj.querySelector(`*[data-prop="${k}"]`)
-			console.log("this.obj dans set", this.obj, this)
+			// console.log("this.obj dans set", this.obj, this)
 			if ( !o && this.constructor.name == 'Carte' ) {
 				/** <= 	Le champ n'appartient pas au propriétaire et il
 					* 		s'agit d'une carte
@@ -87,15 +97,22 @@ let TOMiniMethods = {
 	},
 
 	/**
-		* Méthode qui règle dans la carte les propriétés communes, par
+		* Méthode qui règle dans la carte (*) les propriétés communes, par
 		* exemple le titre ou l'identifiant.
+		*
+		* (*) Ou dans l'édition de la carte.
 		*/
 	setCommonDisplayedProperties(){
+		const verbose = false
+		verbose && console.log("-> setCommonDisplayedProperties", this)
 		this.commonDisplayedProperties.forEach(prop => {
 			const o = this.obj.querySelector(`*[data-prop="${prop}"]`)
-			console.log("[setCommonDisplayedProperties] On doit mettre la propriété %s à '%s' dans", prop, this[prop], o)
-			o && (o.innerHTML = this[prop])
+			if ( undefined == o ) return
+			if ( ! this[prop] ) return
+			verbose && console.log("Mettre la propriété %s à '%s' dans", prop, this[prop], o)
+			o.innerHTML = this[prop]
 		})
+		verbose && console.log("<- setCommonDisplayedProperties")
 	},
 
 	getTitleField(){

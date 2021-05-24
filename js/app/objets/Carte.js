@@ -33,15 +33,24 @@ constructor(data){
 get ref(){return `${this.ty}-${this.id}`}
 
 build(){
-	this.obj = document.querySelector(`${this.constname}#modele-${this.constname}`).cloneNode(/* deep = */ true)
+	// this.obj = document.querySelector(`${this.constname}#modele-${this.constname}`).cloneNode(/* deep = */ true)
+	this.obj = DOM.clone('modeles carte#modele-carte')
 	this.obj.id = this.domId
 	this.obj.classList.remove('hidden')
-	// console.log("this.container", this.container)
 	this.container.querySelector('content > items').appendChild(this.obj)
 	this.obj.owner = this
 	UI.setEditableIn(this.obj)
 	this.setCommonDisplayedProperties()
-	
+}
+
+/**
+	* Pour actualiser l'affichage de la carte
+	*
+	* ATTENTION : il s'agit vraiment et seulement de l'actualisation de
+	* l'affichage et pas de l'enregistrement des nouvelles données.
+	*/
+updateDisplay(hdata){
+	hdata.ti && this.setTitre(hdata.ti)
 }
 
 }// class Carte

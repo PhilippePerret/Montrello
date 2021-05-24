@@ -4,7 +4,7 @@
 		<span class="close-btn"></span>
 		<span class="pictoed">
 			<span class="picto">🔘</span>
-			<span class="titre editable bigger" data-prop="titre">titre de la carte</span>
+			<span class="titre editable bigger" data-prop="ti">titre de la carte</span>
 		</span>
 	</header>
 
@@ -42,14 +42,16 @@
 		<div class="colonne-boutons">
 			
 			<title>Ajouter à la carte</title>
-			<liste_actions data-class="AddToCard">
-				<content>
-					<button data-method="membre">👨‍🦰🎯🧩☎️⏱🧹🔎Membres</button>	
-					<button data-method="tag">🏷 Étiquettes</button>
-					<button data-method="checklist">✔ Check liste</button>
-					<button data-method="dates">⌚️ Dates</button>
-					<button data-method="links">🌎 Liens</button>
-					<button data-method="files">📎  Pièces jointes</button>
+			<liste_actions>
+				<content data-strict-class="CarteForm.current">
+					<!-- 🎯🧩☎️⏱🧹🔎 -->
+					<button data-method="editMembers">👨‍🦰 Membres</button>	
+					<button data-method="editTags">🏷 Étiquettes</button>
+					<button data-method="addChecklist">✔ Check liste</button>
+					<button data-method="editDates">⌚️ Dates</button>
+					<button data-method="editLinks">🌎 Liens</button>
+					<button data-method="editFiles">📎  Pièces jointes</button>
+					<button data-method="editCommands">🖥 Commandes</button>
 				</content>
 			</liste_actions>
 

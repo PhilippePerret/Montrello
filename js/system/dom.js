@@ -63,6 +63,9 @@ class DOM {
     domEl[condition ? 'removeClass' : 'addClass']('hidden')
     return condition
   }
+  static clone(selector){
+    return document.body.querySelector(selector).cloneNode(true)
+  }
   constructor(domEl){
     this.obj = domEl
   }
