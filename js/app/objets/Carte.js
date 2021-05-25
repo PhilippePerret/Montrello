@@ -50,6 +50,12 @@ build(){
 		var compDate = new ComplexeDate(this.dates)
 		this.obj.querySelector('infosdate').innerHTML = compDate.asShortString
 	}
+	// Les Massets
+	this.obj.querySelector('pictosmassets').innerHTML = this.massets.getPictos()
+}
+
+get massets(){
+	return this._massets || (this._massets = new Massets(this))
 }
 
 /**

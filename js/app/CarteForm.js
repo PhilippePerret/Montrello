@@ -30,6 +30,12 @@ constructor(data){
 }
 
 /**
+	* Quand on demande la référence au propriétaire dans l'éditeur de
+	* carte, c'est la référence à la carte éditée qu'on renvoie.
+	*/
+get ref(){ return this.carte.ref }
+
+/**
 	*		*** Méthodes répondant aux boutons de la colonne droite
 	*/ 
 
@@ -45,17 +51,22 @@ updateDevJauge(checklist){
 	DevJauge.setIn(this.carte)
 }
 
-editDates(){
-	message("Je dois éditer les dates")
+addLien(btn, ev){
+	Masset.create('url', this, btn)
 }
-editLinks(){
-	message("Je dois éditer les liens")
+addFileJoint(btn, ev){
+	Masset.create('flj', this, btn)
 }
-editFiles(){
-	message("Je dois éditer les fichiers/pièces joints")
+addCommande(btn, ev){
+	Masset.create('cmd', this, btn)
 }
-editCommands(){
-	message("Je dois éditer les commandes")
+addFolder(btn, ev){
+	Masset.create('fld', this, btn)
+}
+
+// Pas encore utilisé
+addRule(){
+	message("Je dois ajouter une règle pour cette carte")
 }
 /**
 	****************************************************************/

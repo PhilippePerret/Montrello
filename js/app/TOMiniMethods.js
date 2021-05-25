@@ -105,8 +105,8 @@ let TOMiniMethods = {
 		*
 		*/
 	addObjet(obj){
-		const otype = obj.type
-		// console.log("Je dois ajouter un élément de type %s à ", otype, this, obj)
+		const otype = obj.ty
+		console.log("Je dois ajouter un élément de type %s à ", otype, this, obj)
 		this.objs || (this.objs = {})
 		this.objs[otype] || Object.assign(this.objs, {[otype]: []})
 		if ( this.objs[otype].indexOf(obj.id) < 0 ) {
@@ -115,6 +115,9 @@ let TOMiniMethods = {
 		this.save()
 	},
 
+	addMasset(masset){
+		this.addObjet(masset.data)
+	},
 
 	/**
 		*	Pour positionner les objets positionnables (picker-tags, 

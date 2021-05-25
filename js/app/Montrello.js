@@ -10,6 +10,7 @@ type2class:function(type){
 		, 'ca': Carte
 		, 'cl': CheckList
 		, 'tk': CheckListTask
+		, 'ma': Masset
 	}
 	return this.types2class[type]
 },
@@ -44,6 +45,8 @@ init:function(){
 	.then(this.dispatch.bind(this, 'tb'))
 	.then(this.buildItemsOf.bind(this, Tableau))
 	.then(this.ensureCurrentTableau.bind(this))
+	.then(Ajax.send.bind(Ajax,'load.rb',{type:'ma' /* masset */}))	
+	.then(this.dispatch.bind(this, 'ma'))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'tk' /* task de checklist */}))	
 	.then(this.dispatch.bind(this, 'tk'))
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'cl' /* checklist */}))	
