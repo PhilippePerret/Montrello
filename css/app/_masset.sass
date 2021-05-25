@@ -1,7 +1,7 @@
 masset
 	display: block
 	width: 100%
-	background-color: white
+	clear: both
 	> label.masset-content
 		width: 60%
 		overflow: hidden
@@ -9,8 +9,17 @@ masset
 	> buttons
 		float: right
 		text-align: right
-		button.btn-sup
-			float: left
+		button
+			&.btn-sup
+				float: left
+			&.btn-exec
+				display: inline-block
+				width: 48px
+				text-align: center
+				padding: 1px 8px 2px
+
+masset + masset
+	margin-top: 12px
 
 massetedit
 	display: block
@@ -20,3 +29,11 @@ massetedit
 	box-shadow: 5px 5px 25px 5px #CCC
 	z-index: 3000
 	padding: 1em
+	> input[type="text"]
+		display: block
+		width: calc(100% - 2em)
+		margin-top: 0.6em
+	buttons
+		display: block
+		text-align: right
+		margin-top: 1em

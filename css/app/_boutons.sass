@@ -1,7 +1,7 @@
 button
   &.btn, &.btn-close
     all: unset
-    cursor: pointer
+    // cursor: pointer // sera détruit par all:unset
   &.text, &.link, &.btn-close
     all: unset
     font-size: 11pt
@@ -15,6 +15,7 @@ button
   // Bouton pour ajouter ou supprimer
   &.btn-add, &.btn-sup, &.common, &.btn-to-modele, &.btn-save, &.btn-btn
     all: unset
+    cursor: pointer
     background-color: #c8bfbf
     color: white
     padding: 0.2em 0.8em
@@ -37,7 +38,6 @@ button
       color: red
       margin-right: 4px
   &.btn-edit
-    all: unset
     display: inline-block
     width: 20px
     position: relative
@@ -65,3 +65,6 @@ button:not(.fright) + button:not(.fright)
   margin-left: 8px
 button.fright + button.fright
   margin-right: 8px
+
+button.nobackground
+  background-color: transparent !important

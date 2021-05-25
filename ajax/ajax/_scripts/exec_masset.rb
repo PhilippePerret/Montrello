@@ -15,13 +15,14 @@ end
 # Exécute le masset
 # Et retourne le résultat
 def exec_per_type
-	case data['type']
+	log("-> exec_per_type / data : #{data.inspect}")
+	case data['mty']
 	when 'cmd'
 		`#{content} 2>&1`
-	when 'fij'
-		`open -a Finder "$#{content}" 2>&1`
+	when 'flj'
+		`open -a Finder "#{content}" 2>&1`
 	when 'fld'
-		`open -a Finder "$#{content}" 2>&1`
+		`open -a Finder "#{content}" 2>&1`
 	when 'url'
 		# Normalement, ne devrait pas arriver, ça s'exécute dans l'app
 	end

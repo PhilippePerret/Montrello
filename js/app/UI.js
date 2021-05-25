@@ -82,7 +82,7 @@ Object.assign(UI,{
 	setOwnerMethodsIn(container, owner){
 		container.querySelectorAll('button[data-owner-method]').forEach(btn =>{
 			owner = owner || btn.owner
-			console.log("Bouton, owner", btn, owner)
+			// console.log("Bouton, owner", btn, owner)
 			const method = btn.getAttribute('data-owner-method')
 			btn.addEventListener('click', owner[method].bind(owner, btn))
 		})

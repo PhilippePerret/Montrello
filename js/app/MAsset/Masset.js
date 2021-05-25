@@ -6,7 +6,7 @@
 
 const MASSET_TYPES = {
 		'cmd': {name: 'Commande', picto:'🖥', command:'Exec'}
-	, 'fij': {name: 'Fichier joint', picto:'📎', command:'Open'}
+	, 'flj': {name: 'Fichier joint', picto:'📎', command:'Open'}
 	, 'fld': {name: 'Dossier', picto:'📦', command:'Open'}
 	, 'url': {name: 'URL', picto:'🌏', command: 'Go'}
 }
@@ -29,6 +29,7 @@ static create(mtype, owner, btn){
 constructor(data, owner){
 	this.data = data
 	owner && (this.owner = owner)
+	console.log("this.owner = ", this.owner)
 }
 
 /**
@@ -43,8 +44,12 @@ constructor(data, owner){
 exec(ev){
 	if ( this.mtype == 'url') { this.execAsUrl() }
 	else {
+		message("Exécution de l'opération, merci de patienter…")
 		Ajax.send('exec_masset.rb', { data:this.data })
-		.then(ret => {console.log("Résultat de l'opération:", ret.resultat)})
+		.then(ret => {
+			console.log("Résultat de l'opération:", ret.resultat)
+			message("Opération exécutée avec succès, merci.", {keep: false})
+		})
 		.catch(ret => {console.error(ret); return erreur("Une erreur est survenue (consulter l'inspecteur)")})
 	}
 }
@@ -68,10 +73,10 @@ execAsUrl(){
 	*
 	*/
 edit(btn){
-	this.obj || this.build_and_observe()
+	btn && btn.owner && (this.owner = btn.owner)
+	this.objEdit || this.buildAndObserveForEdit()
 	this.positionne(btn)
-	this.show()
-	this.contentField.value = this.content
+	this.showEdit()
 	this.contentField.focus()
 	this.contentField.select()
 }
@@ -88,8 +93,19 @@ save(){
 		this.data.ow = this.owner.ref
 		this.id || (this.data.id = Montrello.getNewId('ma'))
 		Ajax.send('save.rb', {data: this.data}).then(ret => {
-			this.owner.addMasset(this)
-			this.hide()		
+			/** Soit le masset n'existe pas encore et il faut 
+				* l'ajouter au propriétaire, soit il existe et il faut
+				* actualiser son affichage. On le sait par exemple en 
+				* le cherchant dans le DOM
+				*/
+			const omasset = DGet(`masset#${this.domId}`)
+			if ( omasset ) {
+				omasset.querySelector('label.masset-content').innerHTML = this.formatedContent
+			} else {
+				this.owner.addMasset(this)
+				this.build_and_observe()
+			}
+			this.hideEdit()		
 		}).catch(ret => {
 			erreur("Une erreur est survenue (consulter l'inspecteur)")
 			console.error(ret)
@@ -101,7 +117,10 @@ save(){
 	}
 }
 get contentField(){
-	return this._contentfield || (this._contentfield = this.obj.querySelector('.masset-content'))
+	return this._contentfield || (this._contentfield = DGet('input.masset-content', this.objEdit))
+}
+get spanField(){
+	return this._spanfield || (this._spanfield = DGet('label.masset-content', this.obj))
 }
 
 /**
@@ -113,51 +132,80 @@ destroy(){
 	this.hide()
 }
 
+buildAndObserveForEdit(){
+	this.buildForEdit()
+	this.observeForEdit()
+}
 buildForEdit(){
 	const o = DOM.clone('modeles massetedit')
-	o.querySelector('picto.masset-picto').innerHTML = this.dataType.picto
-	o.querySelector('button.masset-command').innerHTML = this.dataType.command
-	o.querySelector('.masset-label').innerHTML = this.dataType.name
+	this.objEdit = o
 	document.body.appendChild(o)
-	this.obj = o
-	this.contentField.value = this.content
+	o.querySelector('picto.masset-picto').innerHTML = this.dataType.picto
+	o.querySelector('.masset-label').innerHTML = this.dataType.name
+	if (this.data.co) this.contentField.value = this.data.co
 }
 observeForEdit(){
-
+	this.objEdit.owner = this
+	UI.setOwnerMethodsIn(this.objEdit, this)
+	const btnSave = this.objEdit.querySelector('button.btn-save')
 }
 
 build_and_observe(){this.build();this.observe()}
 build(){
 	const o = DOM.clone('modeles masset')
+	o.id = this.domId
+	this.obj = o
+
+	// On essaie de trouver le conteneur
+	// this.obj.querySelector()
+	let conteneur
+	if ( this.owner ) {
+		console.log("owner.obj", this.owner.obj)
+		conteneur = DGet('content[data-type-objet="ma"]', this.owner.obj)
+	} else {
+		conteneur = document.body
+	}
+	conteneur.appendChild(o)
 	o.querySelector('picto.masset-picto').innerHTML = this.dataType.picto
 	o.querySelector('button.btn-exec').innerHTML = this.dataType.command
-	o.querySelector('.masset-label').innerHTML = this.dataType.name
-	o.querySelector('.masset-content').innerHTML = this.content
-	document.body.appendChild(o)
-	this.obj = o
+	// Le contenu affiché
+	this.spanField.innerHTML = this.formatedContent
 }
 observe(){
 	this.obj.owner = this
 	UI.setOwnerMethodsIn(this.obj, this)
-	const btnSave = this.obj.querySelector('button.btn-save')
+	DGet('button.btn-edit', this.obj).owner = this.owner
 }
 positionne(btn){
 	const pos = btn.getBoundingClientRect()
-	this.obj.style.top 	= px(pos.top)
-	this.obj.style.left = px(pos.left)
+	this.objEdit.style.top 	= px(pos.top)
+	this.objEdit.style.left = px(pos.left)
 }
+
+// Retourne le contenu formaté pour l'affichage
+get formatedContent(){
+	let c = this.content
+	let clen = c.length
+	if ( clen > 60) {c = c.substring(0,28) + '…' + c.substring(clen - 30, clen)}
+	return c
+}
+
 show(){this.obj.classList.remove('hidden')}
 hide(){this.obj.classList.add('hidden')}
 remove(){
 	this.obj.remove()
 	delete this.obj
 }
+showEdit(){this.objEdit.classList.remove('hidden')}
+hideEdit(){this.objEdit.classList.add('hidden')}
 
 onClickButtonDestroy(ev){
 	message("Je ne sais pas encore détruire un Masset")
 }
 
 get dataType(){return MASSET_TYPES[this.mtype]}
+
+get domId(){return this._domid || (this._domid = `ma-${this.id}`)}
 
 get id(){					return this.data.id }
 get type(){				return this.data.ty }

@@ -131,6 +131,9 @@ buildObjets(){
 			// console.log("objet = ", objet)
 			objet.obj || objet.build_and_observe()
 			conteneur.appendChild(objet.obj)
+			if ( otype == 'ma' /* masset */){
+				objet.obj.querySelectorAll('button').forEach(btn => btn.owner = this)
+			}
 			objet.show()
 		})
 	}
