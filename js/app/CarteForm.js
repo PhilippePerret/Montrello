@@ -110,6 +110,45 @@ build(){
 }
 
 /**
+	* Destruction de l'objet +objet+ qui peut être une checklist,
+	* un Masset, etc.
+	*
+	* La destruction correspond à deux opérations :
+	*		1. suppression de l'objet dans la carte éditée (this.carte)
+	*		1. destruction du fichier de l'objet.
+	*
+	* Pour se faire, on envoie les informations par ajax
+	*
+	*/
+removeObjets(objet){
+	// 1. suppression de l'objet dans la carte
+	let objs = this.carte.objs[objet.type]
+	console.log("Les objets au départ : ", objs)
+	let idx = objs.indexOf(objet.id)
+	if ( idx < 0 ) {
+		console.log("Objet à détruire :", objet)
+		console.log("Carte contenant l'objet : ", this.carte)
+		console.log("Objets de la carte : ", carte.objs)
+		return erreur("Désolé, mais je ne trouve pas l'objet… (consulter la console)")
+	} else {
+		objs.splice(idx,1)
+		this.carte.objs = objs
+	}
+	// 2. destruction de l'objet
+	Ajax.send('remove.rb', {type:objet.type, id:objet.id})
+	.then(ret => {
+		// 3. Enregistrement de la carte
+		this.carte.save()
+		// 4. Destruction de l'objet dans le DOM
+		objet.obj && objet.obj.remove()
+	})
+	.catch(ret => {
+		console.error(ret.error)
+		return erreur("Une erreur s'est produite. Consultez l'inspecteur.")
+	})
+}
+
+/**
 	* Construction des objets de la carte
 	*
 	* QUESTION Faudrait-il généraliser à tous les objets ?

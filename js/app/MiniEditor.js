@@ -114,10 +114,12 @@ build(){
 	let bs = document.createElement('BUTTONS')
 	let bsave = document.createElement('BUTTON')
 	bsave.class="btn-save"
+	bsave.id="mini-editor-btn-save"
 	bsave.innerHTML = 'Enregistrer'
 	bsave.addEventListener('click', this.onClickSave.bind(this))
 	let bcanc = document.createElement('BUTTON')
 	bcanc.class = 'btn-cancel'
+	bcanc.id = "mini-editor-btn-cancel"
 	bcanc.innerHTML = 'Renoncer'
 	bcanc.addEventListener('click', this.onClickCancel.bind(this))
 	

@@ -29,7 +29,7 @@ static create(mtype, owner, btn){
 constructor(data, owner){
 	this.data = data
 	owner && (this.owner = owner)
-	console.log("this.owner = ", this.owner)
+	// console.log("this.owner = ", this.owner)
 }
 
 /**
@@ -127,9 +127,8 @@ get spanField(){
 	* Destruction du Masset
 	*
 	*/
-destroy(){
-	erreur("Je ne sais pas encore détruire un Masset")
-	this.hide()
+destroy(btn){
+	btn.owner.removeObjets(this)
 }
 
 buildAndObserveForEdit(){
@@ -198,10 +197,6 @@ remove(){
 }
 showEdit(){this.objEdit.classList.remove('hidden')}
 hideEdit(){this.objEdit.classList.add('hidden')}
-
-onClickButtonDestroy(ev){
-	message("Je ne sais pas encore détruire un Masset")
-}
 
 get dataType(){return MASSET_TYPES[this.mtype]}
 

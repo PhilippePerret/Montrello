@@ -88,3 +88,39 @@ Le module `TOMiniMethods.js` contient toutes les méthodes utilises et base et n
 Rappel : pour le moment, on envoie le seul élément à sauvegarder, il est sauvegardé dans un fichier `YAML` qui ne contient que lui. Au chargement, tous ces fichiers `YAML` sont rassemblés en une seule grosse donnée.
 
 Concrètement, par exemple avec les `Liste`.
+
+
+
+
+
+## Tests
+
+Les tests de l’application se font avec `InsideTests`.
+
+### Méthodes généralistes utiles
+
+**`await App.isReady([après nombre secondes])`**
+
+Pour attendre que l’application soit prête, principalement au lancement. Si on a besoin de faire attendre, on joue avec `App._isUpAndRunning` qu’on met à `true` ou `false`.
+
+Exemple de code :
+
+~~~javascript
+Test.new("Mon test d'attente de l'application", async function(){
+  
+  // Méthode qui va mettre App._isUpAndRunning à false
+  ma_methode_qui_va_faire_attendre()
+  
+  // On lance une méthode asynchrone qui produit un gros
+  // travail et qui, à la fin, met App._isUpAndRunning à true
+  mon_gros_travail()
+  
+  // On attend la fin de mon_gros_travail(), on lui laisse seulement
+  // 10 secondes (30 par défaut)
+  await App.isReady(10)
+  
+  // Si le gros travail a été effectué dans les temps
+  return true
+})
+~~~
+

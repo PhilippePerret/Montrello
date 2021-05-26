@@ -9,20 +9,29 @@
 
 const NOW = new Date()
 
+const JOURS = {
+    0: {long: 'dimanche', short:'dim'}
+  , 1: {long: 'lundi', short:'lun'}
+  , 2: {long: 'mardi', short:'mar'}
+  , 3: {long: 'mercredi', short:'mer'}
+  , 4: {long: 'jeudi', short:'jeu'}
+  , 5: {long: 'vendredi', short:'ven'}
+  , 6: {long: 'samedi', short:'sam'}
+}
 
 const MOIS = [
-	  {'full':'janvier', 	'short':'janv'}
-	, {'full':'février', 	'short':'fév'}
-	, {'full':'mars', 		'short':'mars'}
-	, {'full':'avril', 		'short':'avr'}
-	, {'full':'mai', 			'short':'mai'}
-	, {'full':'juin',			'short':'juin'}
-	, {'full':'juillet',	'short':'juil'}
-	, {'full':'aout',			'short':'aout'}
-	, {'full':'septembre','short':'sept'}
-	, {'full':'octobre',	'short':'oct'}
-	, {'full':'novembre',	'short':'nov'}
-	, {'full':'décembre',	'short':'déc'}
+	  {long:'janvier', 	 short:'janv'}
+	, {long:'février', 	 short:'fév'}
+	, {long:'mars', 		 short:'mars'}
+	, {long:'avril', 		 short:'avr'}
+	, {long:'mai', 			 short:'mai'}
+	, {long:'juin',			 short:'juin'}
+	, {long:'juillet',	 short:'juil'}
+	, {long:'aout',			 short:'aout'}
+	, {long:'septembre', short:'sept'}
+	, {long:'octobre',	 short:'oct'}
+	, {long:'novembre',	 short:'nov'}
+	, {long:'décembre',	 short:'déc'}
 ]
 class ComplexeDate {
 constructor(data){

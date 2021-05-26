@@ -1,5 +1,7 @@
 # ToDO LIST
 
+* Si une commande est un fichier, on l'exécute (il doit être exécutable)
+
 * Poursuivre l'implémentation des Massets
 	- distinction entre build et buildForEdit
 	- tester les autres (fichier joint, dossier, commande)

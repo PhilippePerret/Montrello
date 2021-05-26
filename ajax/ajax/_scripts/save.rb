@@ -30,7 +30,11 @@ end
 
 if data[:type] == 'config'
 	path = File.join(APP_FOLDER,'data','montrello','config.yaml')
-	File.delete(path) if File.exist?(path)
+	if File.exist?(path)
+		File.delete(path) 
+	else
+		mkdir(File.dirname(path)) # au cas où (tests ?)
+	end
 	File.open(path,'wb') { |f| f.write(YAML.dump(data)) }
 else
 	objet = Objet.new(data)

@@ -57,7 +57,11 @@ init:function(){
 	.then(Ajax.send.bind(Ajax,'load.rb',{type:'ca' /* carte */}))	
 	.then(this.dispatch.bind(this, 'ca'))
 	.then(this.buildItemsOf.bind(this, Carte))
-	.then(ret => {console.log("This.lastIds", this.lastIds)})
+	.then(ret => {
+		App._isUpAndRunning = true
+		console.log("Application prête")
+		console.log("This.lastIds", this.lastIds)
+	})
 	.catch(console.error)
 },
 

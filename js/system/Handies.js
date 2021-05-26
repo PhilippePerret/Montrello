@@ -132,6 +132,17 @@ function clip(what, msg){
 }
 
 /**
+* Pour charger un module JS quelconque du dossier './js'
+***/
+function loadJS(moduleName){
+  moduleName.endsWith('.js') || (moduleName += '.js')
+  return new Promise((ok,ko)=>{
+    const script = DCreate('SCRIPT',{src:`js/${moduleName}`, type:"text/javascript"})
+    document.body.appendChild(script)
+    script.addEventListener('load', ok)
+  })
+}
+/**
 * Pour charger un module du dossier 'js/module'
 ***/
 function loadJSModule(moduleName){

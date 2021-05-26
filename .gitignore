@@ -5,6 +5,8 @@ data/secret/
 
 data/montrello/
 
+data/montrello_backups/
+
 ajax/secret/
 
 .sass-cache/
