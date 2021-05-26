@@ -22,6 +22,25 @@ constructor(element){
 toggle(){
 	this.element.classList.toggle('closed')
 	this.element.classList.toggle('opened')
+	this.ensurePosition()
+}
+
+/**
+	* S'assure, à l'ouverture que le menu soit bien placé
+	*/
+ensurePosition(){
+	const o = this.content
+	const r = o.getBoundingClientRect()
+	const p = this.element.getBoundingClientRect()
+	// Si, par exemple, p.x est à 100, le content doit être mis à -200
+	// Mais il sera placé alors à -10
+	// Comme le content se place par rapport à l'élément, il faut mettre
+	// son left à :
+	// 	- p.x + 10 => 10 - p.x
+	if ( r.top < 10 ) o.style.top = px(10 - p.y)
+	else if ( r.left < 10) o.style.left = px(10 - p.x)
+	else if ( r.bottom > Window.bottom ) o.style.bottom = px(Window.bottom - p.y)
+	else if ( r.right > Window.right) o.style.right = px(Window.bottom - p.x)
 }
 
 /**
@@ -50,10 +69,11 @@ prepare(){
 		this.ul.appendChild(menuItem.obj)
 	}
 	this.element.classList.add('closed')
-	this.element.querySelector('content').appendChild(this.ul)
+	this.content.appendChild(this.ul)
 	this.element.addEventListener('click', this.toggle.bind(this))
 }
 
+get content(){return this._content || (this._content = DGet('content',this.element))}
 
 }//class FeedableMenu
 

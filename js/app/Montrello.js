@@ -112,11 +112,17 @@ dispatch_data(data, type){
 },
 
 buildItemsOf(classe,ret){
-	classe.items &&	Object.values(classe.items).forEach(item => item.build())
+	if ( !classe.items ) return
+	const items = Object.values(classe.items)
+	if ( items.length == 0 ) return
+	const aItem = items[0]
+	const method = 'function' == typeof(aItem.build_and_observe) ? 'build_and_observe' : 'build'
+	items.forEach(item => item[method]())
 },
 
 /**
-	* Méthode qui s'assure qu'il existe un tableau courant
+	* Méthode qui s'assure qu'il existe un tableau courant et le crée
+	* si nécessaire.
 	*
 	*/
 ensureCurrentTableau:function(){
